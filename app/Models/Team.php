@@ -5,9 +5,9 @@ namespace App\Models;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
-use Marsian\Rico\Project as RicoProject;
+use Laravel\Jetstream\Team as JetstreamTeam;
 
-class Project extends RicoProject
+class Team extends JetstreamTeam
 {
     /**
      * The attributes that should be cast to native types.
@@ -15,7 +15,7 @@ class Project extends RicoProject
      * @var array
      */
     protected $casts = [
-        'personal_project' => 'boolean',
+        'personal_team' => 'boolean',
     ];
 
     /**
@@ -25,7 +25,7 @@ class Project extends RicoProject
      */
     protected $fillable = [
         'name',
-        'personal_project',
+        'personal_team',
     ];
 
     /**

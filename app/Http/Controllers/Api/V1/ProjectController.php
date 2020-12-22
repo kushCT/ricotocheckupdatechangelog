@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProjectRequest;
 use App\Http\Resources\ProjectResource;
-use App\Models\Project;
+use App\Models\Team;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -36,7 +36,7 @@ class ProjectController extends Controller
      */
     public function store(CreateProjectRequest $request): ProjectResource
     {
-        $project = Project::create($request->all());
+        $project = Team::create($request->all());
 
         return new ProjectResource($project);
     }
@@ -44,10 +44,10 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Project $project
+     * @param Team $project
      * @return ProjectResource
      */
-    public function show(Project $project): ProjectResource
+    public function show(Team $project): ProjectResource
     {
         return new ProjectResource($project);
     }
@@ -66,11 +66,11 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Project $project
+     * @param Team $project
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(Project $project): JsonResponse
+    public function destroy(Team $project): JsonResponse
     {
         $project->delete();
 
