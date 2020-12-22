@@ -1,0 +1,17 @@
+{
+    "name": "martians/rico",
+    "description": "description",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "macbookpro",
+            "email": "email@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Martians\\Rico\\": "src/"
+        }
+    }
+}
