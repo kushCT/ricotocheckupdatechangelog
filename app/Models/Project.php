@@ -6,7 +6,7 @@ use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
-use Marsian\Rico\Rico as RicoTeam;
+use Marsian\Rico\Team as RicoTeam;
 
 class Project extends RicoTeam
 {
