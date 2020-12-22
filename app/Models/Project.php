@@ -5,9 +5,9 @@ namespace App\Models;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
-use Marsian\Rico\Team as RicoTeam;
+use Marsian\Rico\Project as RicoProject;
 
-class Project extends RicoTeam
+class Project extends RicoProject
 {
     /**
      * The attributes that should be cast to native types.

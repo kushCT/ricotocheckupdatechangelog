@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
 
-abstract class Team extends Model
+abstract class Project extends Model
 {
     /**
      * Get the owner of the team.
