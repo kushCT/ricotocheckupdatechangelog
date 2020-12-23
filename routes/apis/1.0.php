@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| API V 1.0 Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('countries', 'CountryController');
+Route::apiResource('roles', 'RoleController');
+Route::apiResource('permissions', 'PermissionController');
+
+Route::apiResource('projects', 'ProjectController');
+Route::apiResource('projects.members', 'MemberController')->only(['index', 'store']);
+
+Route::apiResource('members', 'MemberController')->only(['update', 'destroy', 'show']);
