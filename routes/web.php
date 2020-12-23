@@ -26,6 +26,6 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
     Route::resource('projects', ProjectController::class);
 
     // Users route
-    Route::resource('projects', UserController::class);
+    Route::resource('user', UserController::class);
 
 });
