@@ -9,14 +9,14 @@ module.exports = {
         extend: {},
         screen: {
             'tablet': '640px',
-
             'laptop': '1024px',
-
             'desktop': '1280px',
         }
     },
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms')
+    ],
 }
