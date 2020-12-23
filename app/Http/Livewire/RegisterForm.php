@@ -69,12 +69,17 @@ class RegisterForm extends Component
      */
     public function register()
     {
-        (new CreateNewUser)->create([
+        $user = (new CreateNewUser)->create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
             'password_confirmation' => $this->passwordConfirmation,
         ]);
+
+        if ($user) {
+            \Auth::login($user);
+            $this->redirect(route('project.index'));
+        }
     }
 
     /**
