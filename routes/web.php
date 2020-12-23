@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Web\ProjectController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,19 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], function () {
 
-    // Projects routes
-    Route::group(['prefix' => 'projects'], function () {
-        // index
-        Route::get('/', function () {
-            return view('projects.index');
-        })->name('project.index');
+    // Projects route
+    Route::resource('projects', ProjectController::class);
 
-        // create
-        Route::get('new', function () {
-            return view('projects.create');
-        })->name('project.create');
-    });
+    // Users route
+    Route::resource('projects', UserController::class);
 
 });
