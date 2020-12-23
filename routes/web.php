@@ -18,13 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+
     // Projects routes
     Route::group(['prefix' => 'projects'], function () {
-        // initial
+        // index
         Route::get('/', function () {
             return view('projects.index');
         })->name('project.index');
+
+        // create
+        Route::get('new', function () {
+            return view('projects.create');
+        })->name('project.create');
     });
 
 });
