@@ -18,8 +18,13 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Fortify::loginView(fn () => view('auth.login'));
-        Fortify::registerView(fn () => view('auth.register'));
+        Fortify::loginView(fn() => view('auth.login'));
+        Fortify::registerView(fn() => view('auth.register'));
+        Fortify::twoFactorChallengeView(fn() => view('auth.two-factor-challenge'));
+        Fortify::requestPasswordResetLinkView(fn() => view('auth.forgot-password'));
+        Fortify::resetPasswordView(fn($request) => view('auth.reset-password', ['request' => $request]));
+        Fortify::verifyEmailView(fn() => view('auth.verify-email'));
+        Fortify::confirmPasswordView(fn() => view('auth.confirm-password'));
     }
 
     /**

@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Projects routes
+    Route::group(['prefix' => 'projects'], function () {
+        // initial
+        Route::get('/', function () {
+            // ...
+        });
+    });
+
 });
