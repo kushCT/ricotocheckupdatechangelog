@@ -17,7 +17,7 @@ class CreateCollaboratorsTable extends Migration
             $table->uuid('id')->index();
             $table->foreignUuid('project_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignUuid('role_id')->constrained()->cascadeOnDelete();
+            $table->string('role')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
