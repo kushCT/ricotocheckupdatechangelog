@@ -14,7 +14,7 @@ class CreateCollaboratorsTable extends Migration
     public function up()
     {
         Schema::create('collaborators', function (Blueprint $table) {
-            $table->uuid('id')->index();
+            $table->uuid('id')->primary()->index();
             $table->foreignUuid('project_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('role')->nullable();

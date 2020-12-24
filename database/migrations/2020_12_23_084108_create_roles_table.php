@@ -14,7 +14,7 @@ class CreateRolesTable extends Migration
     public function up()
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->uuid('id')->index();
+            $table->uuid('id')->primary()->index();
             $table->string('name')->unique()->index();
             $table->softDeletes();
             $table->timestamps();

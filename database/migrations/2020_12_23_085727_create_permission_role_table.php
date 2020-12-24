@@ -14,7 +14,7 @@ class CreatePermissionRoleTable extends Migration
     public function up()
     {
         Schema::create('permission_role', function (Blueprint $table) {
-            $table->uuid('id')->index();
+            $table->uuid('id')->primary()->index();
             $table->foreignUuid('permission_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('role_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
