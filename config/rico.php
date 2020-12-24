@@ -10,9 +10,8 @@ return [
          */
         'translations' => [
             'fr-FR' => null,
-            'en' => null,
-            'es' => null,
-            'ar' => null
+            'en-Us' => null,
+            'pt-PT' => null,
         ],
 
         /**

@@ -29,7 +29,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string|null
      */
-    protected $namespace = 'App\\Http\\Controllers\\Web';
+    // protected $namespace = 'App\\Http\\Controllers\\Web';
 
     /**
      * The API controller namespace.
