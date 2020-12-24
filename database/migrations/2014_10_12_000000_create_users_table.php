@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
                 ->index();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignUuid('current_organization_id')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
