@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Membership;
+use App\Models\Organization;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CollaboratorFactory extends Factory
+class OrganizationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Membership::class;
+    protected $model = Organization::class;
 
     /**
      * Define the model's default state.

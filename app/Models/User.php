@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasOrganization;
 use App\Models\Traits\HasProfile;
-use App\Models\Traits\HasProject;
 use App\Models\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
     use Notifiable;
     use HasUuid;
-    use HasProject;
+    use HasOrganization;
     use TwoFactorAuthenticatable;
     use HasProfile;
     use SoftDeletes;

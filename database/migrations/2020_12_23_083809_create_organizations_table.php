@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateOrganizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->uuid('id')->primary()->index();
-            $table->foreignUuid('organization_id')
+        Schema::create('organizations', function (Blueprint $table) {
+            $table->uuid('id')
+                ->primary()
+                ->index();
+            $table->foreignUuid('user_id')
                 ->constrained()
                 ->cascadeOnDelete();
             $table->string('name');
-            $table->enum('status', config('rico.mock.project_status'))
+            $table->boolean('personal_organization')
                 ->index();
-            $table->boolean('archived')
-                ->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('organizations');
     }
 }
