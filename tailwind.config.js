@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     purge: [
         './resources/**/*.blade.php',
@@ -6,7 +8,11 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+            },
+        },
         screen: {
             'tablet': '640px',
             'laptop': '1024px',
@@ -17,6 +23,8 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require('@tailwindcss/forms')
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio')
     ],
 }
