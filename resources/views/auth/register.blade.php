@@ -28,8 +28,8 @@
         </div>
         <div class="hidden lg:block relative w-0 flex-1">
             <img class="absolute inset-0 h-full w-full object-cover"
-                 src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-                 alt="">
+                 src="https://images.unsplash.com/photo-1502239608882-93b729c6af43?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
+                 alt="register cover">
         </div>
     </div>
 </x-guest-layout>
