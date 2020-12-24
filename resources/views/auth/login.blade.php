@@ -13,7 +13,7 @@
                         <a href="{{ route('register') }}"
                            class="font-medium text-indigo-600 hover:text-indigo-500"
                            lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-                           title="{{ __('start your 14-day free trial') }}">
+                           title="{{ __('start your free trial') }}">
                             {{ __('start your free trial') }}
                         </a>
                     </p>
