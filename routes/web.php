@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Web\ProjectController;
-use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +21,9 @@ Route::get('/', function () {
 Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], function () {
 
     // Projects route
-    Route::resource('projects', ProjectController::class);
+    Route::resource('projects', 'ProjectController');
 
     // Users route
-    Route::resource('user', UserController::class);
+    Route::resource('user', 'UserController');
 
 });
