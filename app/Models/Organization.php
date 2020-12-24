@@ -6,6 +6,7 @@ use App\Events\OrganizationCreated;
 use App\Events\OrganizationDeleted;
 use App\Events\OrganizationUpdated;
 use App\Models\Traits\HasApplication;
+use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,16 +16,7 @@ use Illuminate\Support\Collection;
 
 class Organization extends Model
 {
-    use HasFactory, HasApplication, SoftDeletes;
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'personal_organization' => 'boolean',
-    ];
+    use HasFactory, HasApplication, HasUuid, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -34,6 +26,15 @@ class Organization extends Model
     protected $fillable = [
         'name',
         'personal_organization',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'personal_organization' => 'boolean',
     ];
 
     /**

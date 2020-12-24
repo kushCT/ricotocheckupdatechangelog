@@ -39,7 +39,7 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => ['required', 'string', new Password],
-            'organization_name' => ['required', 'string', Rule::unique(Organization::class)]
+            'organization_name' => ['required', 'string', Rule::unique(Organization::class, 'name')]
         ])->validate();
 
         /**
@@ -69,7 +69,7 @@ class CreateNewUser implements CreatesNewUsers
             'user_id' => $user->id,
             'name' => $name,
             'slug' => Str::slug($name, ''),
-            'personal_organization' => true,
+            'personal_organization' => (bool) true,
         ]));
     }
 }
