@@ -7,7 +7,7 @@ use App\Http\Requests\CreateMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use App\Http\Resources\MemberResource;
 use App\Models\Membership;
-use App\Models\Project;
+use App\Models\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -17,10 +17,10 @@ class MemberController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Project $project
+     * @param Application $project
      * @return AnonymousResourceCollection
      */
-    public function index(Project $project): AnonymousResourceCollection
+    public function index(Application $project): AnonymousResourceCollection
     {
         return MemberResource::collection($project->members);
     }
@@ -28,11 +28,11 @@ class MemberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Project $project
+     * @param Application $project
      * @param CreateMemberRequest $request
      * @return MemberResource
      */
-    public function store(Project $project, CreateMemberRequest $request): MemberResource
+    public function store(Application $project, CreateMemberRequest $request): MemberResource
     {
         $member = $project->members->create($request->all());
 

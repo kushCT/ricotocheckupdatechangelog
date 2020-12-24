@@ -2,15 +2,15 @@
 
 namespace App\Actions\Rico;
 
-use App\Events\ProjectArchived;
-use App\Events\ProjectIsOnline;
-use App\Events\ProjectIsPaused;
-use App\Events\ProjectUnarchived;
+use App\Events\ApplicationArchived;
+use App\Events\ApplicationIsOnline;
+use App\Events\ApplicationIsPaused;
+use App\Events\ApplicationUnarchived;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
-class ProjectAction
+class ApplicationAction
 {
     /**
      * Create project.
@@ -42,7 +42,7 @@ class ProjectAction
             $project->online();
         }
 
-        ProjectIsOnline::dispatch($project, $user);
+        ApplicationIsOnline::dispatch($project, $user);
     }
 
     /**
@@ -62,7 +62,7 @@ class ProjectAction
             $project->paused();
         }
 
-        ProjectIsPaused::dispatch($project, $user);
+        ApplicationIsPaused::dispatch($project, $user);
     }
 
     /**
@@ -83,7 +83,7 @@ class ProjectAction
             $project->archived();
         });
 
-        ProjectArchived::dispatch($project, $user);
+        ApplicationArchived::dispatch($project, $user);
     }
 
     /**
@@ -103,6 +103,6 @@ class ProjectAction
             $project->unarchived();
         }
 
-        ProjectUnarchived::dispatch($project, $user);
+        ApplicationUnarchived::dispatch($project, $user);
     }
 }

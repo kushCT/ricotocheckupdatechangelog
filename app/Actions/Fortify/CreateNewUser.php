@@ -25,8 +25,11 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @return User
      */
-    public function create(array $input)
+    public function create(array $input): User
     {
+        /**
+         * Input validation.
+         */
         Validator::make($input, [
             'email' => [
                 'required',
@@ -66,7 +69,7 @@ class CreateNewUser implements CreatesNewUsers
             'user_id' => $user->id,
             'name' => $name,
             'slug' => Str::slug($name, ''),
-            'personal_team' => true,
+            'personal_organization' => true,
         ]));
     }
 }

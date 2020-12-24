@@ -2,7 +2,7 @@
 
 namespace App\Models\Traits;
 
-trait HasProjectStatus
+trait HasApplicationStatus
 {
     /**
      * Project is online.
@@ -15,7 +15,7 @@ trait HasProjectStatus
     }
 
     /**
-     * Change project status to online.
+     * Change application status to online.
      */
     public function online()
     {
@@ -35,7 +35,7 @@ trait HasProjectStatus
     }
 
     /**
-     * Change project status to paused.
+     * Change application status to paused.
      */
     public function paused()
     {

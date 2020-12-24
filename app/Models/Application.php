@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use App\Events\ProjectCreated;
-use App\Events\ProjectDeleted;
-use App\Events\ProjectUpdated;
-use App\Models\Traits\HasProjectStatus;
+use App\Events\ApplicationCreated;
+use App\Events\ApplicationDeleted;
+use App\Events\ApplicationUpdated;
+use App\Models\Traits\HasApplicationStatus;
 use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Project extends Model
+class Application extends Model
 {
-    use HasFactory, HasUuid, SoftDeletes, HasProjectStatus;
+    use HasFactory, HasUuid, SoftDeletes, HasApplicationStatus;
 
     /**
      * The attributes that are mass assignable.
@@ -37,9 +37,9 @@ class Project extends Model
      * @var array
      */
     protected $dispatchesEvents = [
-        'created' => ProjectCreated::class,
-        'updated' => ProjectUpdated::class,
-        'deleted' => ProjectDeleted::class,
+        'created' => ApplicationCreated::class,
+        'updated' => ApplicationUpdated::class,
+        'deleted' => ApplicationDeleted::class,
     ];
 
     /**
@@ -53,7 +53,7 @@ class Project extends Model
     }
 
     /**
-     * Archived project
+     * Archived application
      */
     public function archived()
     {
@@ -63,7 +63,7 @@ class Project extends Model
     }
 
     /**
-     * Unarchived project.
+     * Unarchived application.
      */
     public function unarchived()
     {

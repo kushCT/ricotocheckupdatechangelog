@@ -5,18 +5,17 @@ namespace App\Models;
 use App\Events\OrganizationCreated;
 use App\Events\OrganizationDeleted;
 use App\Events\OrganizationUpdated;
-use App\Models\Traits\HasProject;
+use App\Models\Traits\HasApplication;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
 class Organization extends Model
 {
-    use HasFactory, HasProject, SoftDeletes;
+    use HasFactory, HasApplication, SoftDeletes;
 
     /**
      * The attributes that should be cast to native types.
@@ -135,15 +134,5 @@ class Organization extends Model
         $this->users()->detach();
 
         $this->delete();
-    }
-
-    /**
-     * Organizations projects.
-     *
-     * @return HasMany
-     */
-    public function projects(): HasMany
-    {
-        return $this->hasMany(Project::class);
     }
 }

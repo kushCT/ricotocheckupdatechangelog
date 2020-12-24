@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Project;
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProjectPolicy
+class ApplicationPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ProjectPolicy
      * Determine whether the user can view the model.
      *
      * @param User $user
-     * @param Project $project
+     * @param Application $project
      * @return mixed
      */
-    public function view(User $user, Project $project)
+    public function view(User $user, Application $project)
     {
         //
     }
@@ -48,10 +48,10 @@ class ProjectPolicy
      * Determine whether the user can update the model.
      *
      * @param User $user
-     * @param Project $project
+     * @param Application $project
      * @return mixed
      */
-    public function update(User $user, Project $project)
+    public function update(User $user, Application $project)
     {
         //
     }
@@ -60,10 +60,10 @@ class ProjectPolicy
      * Determine whether the user can delete the model.
      *
      * @param User $user
-     * @param Project $project
+     * @param Application $project
      * @return mixed
      */
-    public function delete(User $user, Project $project)
+    public function delete(User $user, Application $project)
     {
         //
     }
@@ -72,10 +72,10 @@ class ProjectPolicy
      * Determine whether the user can restore the model.
      *
      * @param User $user
-     * @param Project $project
+     * @param Application $project
      * @return mixed
      */
-    public function restore(User $user, Project $project)
+    public function restore(User $user, Application $project)
     {
         //
     }
@@ -84,10 +84,10 @@ class ProjectPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param User $user
-     * @param Project $project
+     * @param Application $project
      * @return mixed
      */
-    public function forceDelete(User $user, Project $project)
+    public function forceDelete(User $user, Application $project)
     {
         //
     }
