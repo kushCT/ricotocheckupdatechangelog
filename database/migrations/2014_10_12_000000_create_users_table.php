@@ -18,8 +18,7 @@ class CreateUsersTable extends Migration
                 ->primary()
                 ->index();
             $table->string('email')
-                ->unique()
-                ->index();
+                ->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignUuid('current_organization_id')->nullable();
