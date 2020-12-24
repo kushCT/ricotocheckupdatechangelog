@@ -7,7 +7,7 @@ return [
     'mockup' => [
         // Translation.
         'translations' => [
-            'fr' => null,
+            'fr-FR' => null,
             'en' => null,
             'es' => null,
             'ar' => null
