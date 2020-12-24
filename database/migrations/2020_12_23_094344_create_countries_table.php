@@ -20,7 +20,7 @@ class CreateCountriesTable extends Migration
             $table->string('iso_code', 3)
                 ->unique()->index();
             $table->json('translations')
-                ->default(config('rico.mockup.translations'));
+                ->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
