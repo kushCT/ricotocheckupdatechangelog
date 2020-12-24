@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasProfile;
 use App\Models\Traits\HasProject;
 use App\Models\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -13,7 +14,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, HasUuid, HasProject, TwoFactorAuthenticatable, SoftDeletes;
+    use HasFactory, Notifiable, HasUuid, HasProject, TwoFactorAuthenticatable, HasProfile, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

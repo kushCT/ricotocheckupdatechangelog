@@ -36,6 +36,9 @@ class LoginForm extends Component
         $this->validate(['password' => ['required', 'string', new Password]]);
     }
 
+    /**
+     *
+     */
     public function login()
     {
 

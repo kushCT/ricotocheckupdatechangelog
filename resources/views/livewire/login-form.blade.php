@@ -7,6 +7,7 @@
             <input wire:model="email" id="email" name="email" type="email" autocomplete="email" required placeholder="your.name@email.com"
                    class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         </div>
+        @error('email') {{ $message }} @enderror
     </div>
 
     <div class="space-y-1">
