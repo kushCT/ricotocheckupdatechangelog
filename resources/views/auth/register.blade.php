@@ -8,6 +8,15 @@
                     <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                         {{ __('Get Your Trial Today') }}
                     </h2>
+                    <p class="mt-2 text-sm text-gray-600 max-w">
+                        {{ __('Already registered?') }}
+                        <a href="{{ route('register') }}"
+                           class="font-medium text-indigo-600 hover:text-indigo-500"
+                           lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+                           title="{{ __('register') }}">
+                            {{ __('Sign into existing account.') }}
+                        </a>
+                    </p>
                 </div>
 
                 <div class="mt-8">
