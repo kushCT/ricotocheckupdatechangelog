@@ -5,7 +5,7 @@
                 <div>
                     <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                          alt="Rico app logo">
-                    <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+                    <h2 class="mt-6 {{ app()->getLocale() === 'fr-FR' ? 'text-4xl' : 'text-3xl' }} font-extrabold text-gray-900">
                         {{ __('Sign in to your account') }}
                     </h2>
                     <p class="mt-2 text-sm text-gray-600 max-w">
@@ -14,7 +14,7 @@
                            class="font-medium text-indigo-600 hover:text-indigo-500"
                            lang="{{ str_replace('_', '-', app()->getLocale()) }}"
                            title="{{ __('start your 14-day free trial') }}">
-                            {{ __('start your 14-day free trial') }}
+                            {{ __('start your free trial') }}
                         </a>
                     </p>
                 </div>
