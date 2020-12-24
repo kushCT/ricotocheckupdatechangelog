@@ -19,6 +19,8 @@ class CreateProfilesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone_number');
+            $table->string('status');
+            $table->string('avatar');
             $table->string('username');
             $table->string('twitter');
             $table->string('github');
