@@ -17,7 +17,8 @@ class CreateProjectsTable extends Migration
             $table->uuid('id')->primary()->index();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->boolean('personal_project');
+            $table->boolean('personal_project')->index();
+            $table->enum('status', config('rico.mock.project_status'))->index();
             $table->softDeletes();
             $table->timestamps();
         });
