@@ -23,14 +23,6 @@ class LoginForm extends Component
     /**
      *
      */
-    public function updatedEmail()
-    {
-        $this->validate(['email' => ['required', 'string', 'email', 'exists:users,email']]);
-    }
-
-    /**
-     *
-     */
     public function updatedPassword()
     {
         $this->validate(['password' => ['required', 'string', new Password]]);
