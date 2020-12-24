@@ -9,12 +9,12 @@
                         {{ __('Sign in to your account') }}
                     </h2>
                     <p class="mt-2 text-sm text-gray-600 max-w">
-                        {{ __('Or') }}
+                        {{ __('Not registered?') }}
                         <a href="{{ route('register') }}"
                            class="font-medium text-indigo-600 hover:text-indigo-500"
                            lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-                           title="{{ __('start your free trial') }}">
-                            {{ __('start your free trial') }}
+                           title="{{ __('register') }}">
+                            {{ __('Sign up for a new account.') }}
                         </a>
                     </p>
                 </div>
