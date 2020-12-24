@@ -14,7 +14,14 @@ class CreateCountriesTable extends Migration
     public function up()
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('native_name')
+                ->unique()->index();
+            $table->string('iso_code', 3)
+                ->unique()->index();
+            $table->json('translations')
+                ->default(config('rico.mockup.translations'));
+            $table->softDeletes();
             $table->timestamps();
         });
     }
