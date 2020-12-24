@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Role;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -37,6 +38,14 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
+        /**
+         * Configure route model.
+         */
+        Route::model('role', Role::class);
+
+        /**
+         * Declare routes
+         */
         $this->routes(function () {
             Route::prefix('api/1.0')->middleware('api')
                 ->namespace('App\\Http\\Controllers\\Api\\V1')
