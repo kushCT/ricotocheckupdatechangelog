@@ -28,7 +28,8 @@
 
                             <div class="mt-1 grid grid-cols-2 gap-2">
                                 <div>
-                                    <a href="#" title="{{ __('Sign in with Gmail') }}" lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+                                    <a href="#" title="{{ __('Sign in with Gmail') }}"
+                                       lang="{{ str_replace('_', '-', app()->getLocale()) }}"
                                        class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                                         <span class="sr-only">{{ __('Sign in with Gmail') }}</span>
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -40,7 +41,8 @@
                                 </div>
 
                                 <div>
-                                    <a href="#" title="{{ __('Sign in with GitHub') }}" lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+                                    <a href="#" title="{{ __('Sign in with GitHub') }}"
+                                       lang="{{ str_replace('_', '-', app()->getLocale()) }}"
                                        class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                                         <span class="sr-only">{{ __('Sign in with GitHub') }}</span>
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
