@@ -21,14 +21,14 @@
 
                 <div class="mt-8">
                     <div class="mt-6">
-                        <form action="" method="post" class="space-y-6">
+                        <form action="/two-factor-challenge" method="post" class="space-y-6">
                             @csrf
                             <div>
                                 <label for="code" class="block text-sm font-medium text-gray-700">
                                     {{ __('Code') }}
                                 </label>
                                 <div class="mt-1">
-                                    <input id="code" name="code" type="email" required placeholder="6-digits"
+                                    <input id="code" name="code" type="text" required placeholder="6-digits"
                                            class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 </div>
                                 @error('code') {{ $message }} @enderror
