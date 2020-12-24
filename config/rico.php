@@ -19,12 +19,8 @@ return [
          * Project status.
          */
         'project_status' => [
-            'pending',
             'online',
-            'offline',
-            'suspended',
-            'archived',
-            'paused'
+            'paused',
         ]
     ]
 ];

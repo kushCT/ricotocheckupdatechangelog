@@ -14,7 +14,13 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, HasUuid, HasProject, TwoFactorAuthenticatable, HasProfile, SoftDeletes;
+    use HasFactory;
+    use Notifiable;
+    use HasUuid;
+    use HasProject;
+    use TwoFactorAuthenticatable;
+    use HasProfile;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
