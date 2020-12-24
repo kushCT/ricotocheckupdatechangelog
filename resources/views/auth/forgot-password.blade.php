@@ -23,7 +23,6 @@
                     <div class="mt-6">
                         <form action="{{ route('password.request') }}" method="POST" class="space-y-6">
                             @csrf
-
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">
                                     {{ __('Email address') }}

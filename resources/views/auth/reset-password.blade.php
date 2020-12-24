@@ -6,7 +6,7 @@
                     <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                          alt="Workflow">
                     <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
-                        {{ __('Create new account') }}
+                        {{ __('Change password') }}
                     </h2>
                     <p class="mt-2 text-sm text-gray-600 max-w">
                         {{ __('Already registered?') }}
@@ -21,16 +21,18 @@
 
                 <div class="mt-8">
                     <div class="mt-6">
-                        <form action="#" method="POST" class="space-y-6">
-                            <div class="space-y-1">
-                                <label for="password" class="block text-sm font-medium text-gray-700">
-                                    {{ __('Password') }}
+                        <form action="{{ route('password.update') }}" method="POST" class="space-y-6">
+                            @csrf
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">
+                                    {{ __('Email address') }}
                                 </label>
                                 <div class="mt-1">
-                                    <input wire:model="password" id="password" name="password" type="password" autocomplete="current-password"
-                                           required placeholder="**********"
-                                           class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <input id="email" name="email" type="email" value="{{ request()->email }}"
+                                           class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                           disabled>
                                 </div>
+                                @error('email') {{ $message }} @enderror
                             </div>
 
                             <div class="space-y-1">
@@ -38,13 +40,28 @@
                                     {{ __('Password') }}
                                 </label>
                                 <div class="mt-1">
-                                    <input wire:model="password" id="password" name="password" type="password" autocomplete="current-password"
+                                    <input id="password" name="password" type="password"
+                                           autocomplete="current-password"
                                            required placeholder="**********"
                                            class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 </div>
+                                @error('password') {{ $message }} @enderror
                             </div>
 
-                            <input type="hidden" name="token" value="{{ $request->token }}">
+                            <div class="space-y-1">
+                                <label for="password_confirmation" class="block text-sm font-medium text-gray-700">
+                                    {{ __('Password confirmation') }}
+                                </label>
+                                <div class="mt-1">
+                                    <input id="password_confirmation" name="password_confirmation" type="password"
+                                           required placeholder="**********"
+                                           class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                </div>
+                                @error('password') {{ $message }} @enderror
+                            </div>
+
+                            <input type="hidden" name="token" value="{{ request()->route('token') }}">
+                            <input type="hidden" name="email" value="{{ request()->email }}">
 
                             <div>
                                 <button type="submit"
