@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], function () {
 
+    // Apps route
+    Route::resource('apps', 'AppController');
+
     // Projects route
     Route::resource('projects', 'ProjectController');
 
