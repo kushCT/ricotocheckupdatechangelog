@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Permission;
+use App\Models\Project;
 use App\Models\Role;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -42,6 +44,8 @@ class RouteServiceProvider extends ServiceProvider
          * Configure route model.
          */
         Route::model('role', Role::class);
+        Route::model('permission', Permission::class);
+        Route::model('project', Project::class);
 
         /**
          * Declare routes
