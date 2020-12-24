@@ -4,7 +4,7 @@
             {{ __('Email address') }}
         </label>
         <div class="mt-1">
-            <input wire:model="email" id="email" name="email" type="email" autocomplete="email" required
+            <input wire:model="email" id="email" name="email" type="email" autocomplete="email" required placeholder="your.name@email.com"
                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         </div>
     </div>
@@ -15,7 +15,7 @@
         </label>
         <div class="mt-1">
             <input wire:model="password" id="password" name="password" type="password" autocomplete="current-password"
-                   required
+                   required placeholder="password"
                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         </div>
     </div>
