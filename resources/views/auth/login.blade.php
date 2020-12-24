@@ -21,7 +21,7 @@
 
                 <div class="mt-8">
                     <div class="mt-6">
-                        <form action="" method="post" class="space-y-6">
+                        <form action="{{ route('login') }}" method="post" class="space-y-6">
                             @csrf
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">
