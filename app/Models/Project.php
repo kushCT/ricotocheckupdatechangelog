@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Events\ProjectArchived;
-use App\Events\ProjectUnarchived;
+use App\Events\ProjectCreated;
+use App\Events\ProjectDeleted;
+use App\Events\ProjectUpdated;
 use App\Models\Traits\HasProjectStatus;
 use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,11 +16,13 @@ class Project extends Model
     use HasFactory, HasUuid, SoftDeletes, HasProjectStatus;
 
     /**
-     * The attributes that aren't mass assignable.
+     * The attributes that are mass assignable.
      *
-     * @var string[]|bool
+     * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+    ];
 
     /**
      * The attributes that should be cast.
@@ -27,6 +30,17 @@ class Project extends Model
      * @var array
      */
     protected $casts = [];
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => ProjectCreated::class,
+        'updated' => ProjectUpdated::class,
+        'deleted' => ProjectDeleted::class,
+    ];
 
     /**
      * Project is archived.
