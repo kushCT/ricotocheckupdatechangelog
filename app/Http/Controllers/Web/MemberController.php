@@ -12,11 +12,14 @@ class MemberController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return View
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        return view('members.index');
+        $organization = $request->user()->currentOrganization;
+
+        return view('members.index', compact('organization'));
     }
 
     /**

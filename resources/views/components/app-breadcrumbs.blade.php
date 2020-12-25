@@ -41,7 +41,7 @@
                      aria-hidden="true">
                     <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                 </svg>
-                <span class="ml-4 text-sm font-medium text-gray-500">{{ __('Applications') }}</span>
+                <span class="ml-4 text-sm font-medium text-gray-500">{!! ucfirst(str_replace('/', '', request()->getRequestUri())) !!}</span>
             </div>
         </li>
         @endif

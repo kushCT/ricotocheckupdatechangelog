@@ -15,9 +15,9 @@ class AppController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return Application|Factory|View|Response
+     * @return View
      */
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $organization = $request->user()->currentOrganization;
 
