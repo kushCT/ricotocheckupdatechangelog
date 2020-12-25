@@ -23,7 +23,10 @@
         <div class="flex-grow flex flex-col">
             <x-app-navigation />
 
-            <x-app-content />
+            <div class="flex-grow flex flex-col">
+                {{ $slot }}
+            </div>
+
         </div>
     </main>
 

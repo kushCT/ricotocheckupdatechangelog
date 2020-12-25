@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Organization;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+use function Livewire\str;
 
 class OrganizationFactory extends Factory
 {
@@ -22,7 +24,9 @@ class OrganizationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $name = $this->faker->company,
+            'slug' => Str::Slug($name, ''),
+            'user_id' => Str::uuid()
         ];
     }
 }
