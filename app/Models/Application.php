@@ -10,6 +10,7 @@ use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use LasseRafn\InitialAvatarGenerator\InitialAvatar;
 
 class Application extends Model
 {
@@ -70,5 +71,18 @@ class Application extends Model
         tap($this)->update([
             'archived' => false
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function nameInitial(): string
+    {
+        return (new InitialAvatar())
+            ->name($this->name)
+            ->rounded()
+            ->fontSize(0.35)
+            ->generateSvg()
+            ->toXMLString();
     }
 }

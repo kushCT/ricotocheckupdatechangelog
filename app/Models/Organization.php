@@ -139,7 +139,10 @@ class Organization extends Model
     }
 
 
-    public function nameInitial()
+    /**
+     * @return string
+     */
+    public function nameInitial(): string
     {
         return (new InitialAvatar())
             ->name($this->name)
