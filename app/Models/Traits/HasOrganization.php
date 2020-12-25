@@ -5,6 +5,7 @@ namespace App\Models\Traits;
 use App\Models\Membership;
 use App\Models\Organization;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -24,7 +25,7 @@ trait HasOrganization
     /**
      * Get the current organization of the user's context.
      */
-    public function currentOrganization()
+    public function currentOrganization(): BelongsTo
     {
         if (is_null($this->current_organization_id) && $this->id) {
             $this->switchOrganization($this->personalOrganization());

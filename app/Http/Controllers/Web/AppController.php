@@ -14,11 +14,16 @@ class AppController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Application|Factory|View|Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('apps.index');
+        $organization = $request->user()->currentOrganization();
+
+        return view('apps.index', [
+            'currentOrganization' => $organization
+        ]);
     }
 
     /**
