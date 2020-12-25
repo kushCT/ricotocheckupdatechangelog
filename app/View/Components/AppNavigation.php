@@ -7,13 +7,18 @@ use Illuminate\View\Component;
 class AppNavigation extends Component
 {
     /**
+     * @var \Illuminate\Routing\Route|object|string|null
+     */
+    public $slug;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct()
     {
-        //
+        $this->slug = request()->route('slug');
     }
 
     /**
