@@ -21,13 +21,14 @@ Route::get('/', function () {
 Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], function () {
     // Organizations route
     Route::resource('organizations', 'OrganizationController')->except('show');
-    Route::get('organizations/{slug}/application', 'AppController@index');
+    Route::get('organizations/{slug}/applications', 'AppController@index');
+    Route::get('organizations/{slug}/members', 'MemberController@index');
 
     // Apps route
     Route::resource('applications', 'AppController')->except('index');
 
     // Members route
-    Route::resource('members', 'MemberController');
+    Route::resource('members', 'MemberController')->except('index');;
 
     // Users route
     Route::resource('user', 'UserController');
