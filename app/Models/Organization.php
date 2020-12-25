@@ -94,7 +94,7 @@ class Organization extends Model
     /**
      * Determine if the given email address belongs to a user on the organization.
      *
-     * @param  string  $email
+     * @param string $email
      * @return bool
      */
     public function hasUserWithEmail(string $email): bool
@@ -141,6 +141,11 @@ class Organization extends Model
 
     public function nameInitial()
     {
-        return (new InitialAvatar())->name($this->name)->rounded()->fontSize(0.35)->generateSvg()->toXMLString();
+        return (new InitialAvatar())
+            ->name($this->name)
+            ->rounded()
+            ->fontSize(0.35)
+            ->generateSvg()
+            ->toXMLString();
     }
 }

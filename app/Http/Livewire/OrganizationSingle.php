@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Organization;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,6 +22,17 @@ class OrganizationSingle extends Component
     public function mount($organization)
     {
         $this->organization = $organization;
+    }
+
+    public function changeOrganization($organizationId)
+    {
+        $organization = Organization::findOrFail($organizationId);
+
+        if (! request()->user()->switchOrganization($organization)) {
+            abort(403);
+        }
+
+        return redirect(route('account.applications.index'), 303);
     }
 
     /**
