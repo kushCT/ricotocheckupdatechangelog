@@ -19,12 +19,12 @@ Route::get('/', function () {
 });
 
 Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], function () {
+    // Organizations route
+    Route::resource('organizations', 'OrganizationController')->except('show');
+    Route::get('organizations/{slug}/application', 'AppController@index');
 
     // Apps route
-    Route::resource('applications', 'AppController');
-
-    // Organizations route
-    Route::resource('organizations', 'OrganizationController');
+    Route::resource('applications', 'AppController')->except('index');
 
     // Members route
     Route::resource('members', 'MemberController');
