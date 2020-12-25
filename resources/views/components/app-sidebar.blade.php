@@ -10,9 +10,7 @@
     <div class="flex-grow flex flex-col items-center justify-between p-4">
         {{-- TOP CONTENT --}}
         <div class="flex flex-col space-y-6 pt-4">
-            <a href="#" class="rounded-full bg-gray-300 w-12 h-12 text-white flex justify-center items-center"></a>
-            <a href="#" class="rounded-full bg-gray-300 w-12 h-12 text-white flex justify-center items-center"></a>
-            <a href="#" class="rounded-full bg-gray-300 w-12 h-12 text-white flex justify-center items-center"></a>
+            <livewire:organisation-logo  />
         </div>
 
         {{-- BOTTOM CONTENT --}}
