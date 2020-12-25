@@ -17,13 +17,13 @@
 <body class="antialiased">
     {{-- Main container --}}
     <main class="flex min-h-screen bg-gray-200">
-        <x-app-sidebar></x-app-sidebar>
+        <x-app-sidebar />
 
         {{-- Page content  --}}
         <div class="flex-grow flex flex-col">
-            <x-app-navigation></x-app-navigation>
+            <x-app-navigation />
 
-            <x-app-content></x-app-content>
+            <x-app-content />
         </div>
     </main>
 
