@@ -10,19 +10,6 @@ use Illuminate\Http\Response;
 class MemberController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @param Request $request
-     * @return View
-     */
-    public function index(Request $request): View
-    {
-        $organization = $request->user()->currentOrganization;
-
-        return view('members.index', compact('organization'));
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return View

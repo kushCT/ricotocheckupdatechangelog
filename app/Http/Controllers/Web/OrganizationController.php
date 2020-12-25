@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -12,11 +13,18 @@ class OrganizationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return View
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function index(): View
+    public function index(Request $request): RedirectResponse
     {
-        return view('organizations.index');
+        $organization = $request->user()->currentOrganization;
+
+        return redirect()->route(
+            'account.applications.index', [
+                'slug' => $organization->slug
+            ]
+        );
     }
 
     /**

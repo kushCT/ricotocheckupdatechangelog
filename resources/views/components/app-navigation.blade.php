@@ -1,17 +1,18 @@
 {{-- Navigation --}}
 <header class="flex-shrink-0 bg-gray-50 flex h-20 px-12 justify-between">
     <nav class="flex flex-grow space-x-8">
-        <a href="{{ route('account.applications.index') }}"
+        <a href="#"
            class="@if(request()->routeIs('account.applications.index')) border-indigo-500 text-gray-900 @else border-transparent hover:border-gray-300 hover:text-gray-700 text-gray-500 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
            lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             {{ __('Applications') }}
         </a>
-        <a href="{{ route('account.members.index') }}"
+        <a href="#"
            class="@if(request()->routeIs('account.members.index')) border-indigo-500 text-gray-900 @else border-transparent hover:border-gray-300 hover:text-gray-700 text-gray-500 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
            lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             {{ __('Members') }}
         </a>
-        <a href="#" class="@if(request()->routeIs('settings')) border-indigo-500 text-gray-900 @else border-transparent hover:border-gray-300 hover:text-gray-700 text-gray-500 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+        <a href="#"
+           class="@if(request()->routeIs('settings')) border-indigo-500 text-gray-900 @else border-transparent hover:border-gray-300 hover:text-gray-700 text-gray-500 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
            lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             {{ __('Settings') }}
         </a>
