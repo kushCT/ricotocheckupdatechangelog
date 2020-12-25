@@ -10,7 +10,7 @@ class OrganizationIndex extends Component
     public function render()
     {
         return view('livewire.organization-index', [
-            'organizations' => Organization::all()
+            'organizations' => auth()->user()->organizations
         ]);
     }
 }
