@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-class OrganisationLogo extends Component
+class OrganizationSingle extends Component
 {
     /**
      * @var mixed
@@ -27,6 +27,6 @@ class OrganisationLogo extends Component
      */
     public function render()
     {
-        return view('livewire.organisation-logo');
+        return view('livewire.organization-single');
     }
 }

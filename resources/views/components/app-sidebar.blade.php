@@ -9,9 +9,7 @@
     {{-- ORGANIZATION AND USER ACTION --}}
     <div class="flex-grow flex flex-col items-center justify-between p-4">
         {{-- TOP CONTENT --}}
-        <div class="flex flex-col space-y-6 pt-4">
-            <livewire:organisation-logo :organization="" :key=""/>
-        </div>
+        <livewire:organization-index />
 
         {{-- BOTTOM CONTENT --}}
         <div class="flex flex-col space-y-4">
