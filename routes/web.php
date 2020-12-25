@@ -29,4 +29,7 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
     // Users route
     Route::resource('user', 'UserController');
 
+    // Switch organization.
+    Route::put('/current-organization', [SwitchOrganizationController::class, 'update'])
+        ->name('current-team.update');
 });

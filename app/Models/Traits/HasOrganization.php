@@ -36,9 +36,10 @@ trait HasOrganization
     /**
      * Switch the user's context to the given organization.
      *
+     * @param $organization
      * @return bool
      */
-    public function switchOrganization($organization)
+    public function switchOrganization(Organization $organization): bool
     {
         if (! $this->belongsToOrganization($organization)) {
             return false;
