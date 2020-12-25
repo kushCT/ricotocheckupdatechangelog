@@ -11,8 +11,8 @@
            lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             {{ __('Members') }}
         </a>
-        <a href="#"
-           class="@if(request()->routeIs('settings')) border-indigo-500 text-gray-900 @else border-transparent hover:border-gray-300 hover:text-gray-700 text-gray-500 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+        <a href="{{ route('account.settings.index', $slug) }}"
+           class="@if(request()->routeIs('account.settings.index')) border-indigo-500 text-gray-900 @else border-transparent hover:border-gray-300 hover:text-gray-700 text-gray-500 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
            lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             {{ __('Settings') }}
         </a>

@@ -33,6 +33,9 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
     Route::get('organizations/{slug}/members', 'OrganizationMemberController@index')
         ->name('members.index');
 
+    Route::get('organizations/{slug}/settings', 'OrganizationSettingController@index')
+        ->name('settings.index');
+
     /**
      * Application routes without index.
      */

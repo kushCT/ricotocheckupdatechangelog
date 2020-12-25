@@ -25,7 +25,7 @@ class OrganizationFactory extends Factory
     {
         return [
             'name' => $name = $this->faker->company,
-            'slug' => Str::Slug($name, ''),
+            'slug' => Str::Slug($name),
             'user_id' => User::factory()->create(),
             'personal_organization' => true
         ];
