@@ -23,7 +23,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('name')->unique()
                 ->index();
             $table->string('slug')->unique()->index();
-            $table->boolean('personal_organization')->nullable();
+            $table->boolean('personal_organization')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
