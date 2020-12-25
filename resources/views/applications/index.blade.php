@@ -150,10 +150,10 @@
                                                 <div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600"
                                                      aria-hidden="true"></div>
                                                 <a href="#" class="truncate hover:text-gray-600">
-                      <span>
-                        GraphQL API
-                        <span class="text-gray-500 font-normal">in Engineering</span>
-                      </span>
+                                                  <span>
+                                                    GraphQL API
+                                                    <span class="text-gray-500 font-normal">in Engineering</span>
+                                                  </span>
                                                 </a>
                                             </div>
                                         </td>
