@@ -19,14 +19,13 @@
     <main class="flex min-h-screen bg-gray-200">
         <x-app-sidebar />
 
-        {{-- Page content  --}}
+        {{-- App content --}}
         <div class="flex-grow flex flex-col">
             <x-app-navigation />
 
             <div class="flex-grow flex flex-col">
                 {{ $slot }}
             </div>
-
         </div>
     </main>
 

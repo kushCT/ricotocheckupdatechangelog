@@ -19,7 +19,7 @@ class AppController extends Controller
      */
     public function index(Request $request)
     {
-        $organization = $request->user()->currentOrganization();
+        $organization = $request->user()->currentOrganization;
 
         return view('apps.index', [
             'currentOrganization' => $organization
