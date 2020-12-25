@@ -30,6 +30,6 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
     Route::resource('user', 'UserController');
 
     // Switch organization.
-    Route::put('/current-organization', [SwitchOrganizationController::class, 'update'])
+    Route::put('/current-organization', 'SwitchOrganizationController@update')
         ->name('current-team.update');
 });
