@@ -14,6 +14,7 @@ class OrganizationSingle extends Component
      */
     public $organization;
 
+
     /**
      * @param $organization
      */

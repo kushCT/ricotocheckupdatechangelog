@@ -7,12 +7,15 @@ use App\Events\OrganizationDeleted;
 use App\Events\OrganizationUpdated;
 use App\Models\Traits\HasApplication;
 use App\Models\Traits\HasUuid;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Intervention\Image\Image;
+use LasseRafn\InitialAvatarGenerator\InitialAvatar;
 
 class Organization extends Model
 {
@@ -96,9 +99,7 @@ class Organization extends Model
      */
     public function hasUserWithEmail(string $email): bool
     {
-        return $this->allUsers()->contains(function ($user) use ($email) {
-            return $user->email === $email;
-        });
+        return $this->allUsers()->contains(fn($user) => $user->email === $email);
     }
 
     /**
@@ -122,7 +123,7 @@ class Organization extends Model
      * Purge all of the organization's resources.
      *
      * @return void
-     * @throws \Exception
+     * @throws Exception
      */
     public function purge()
     {
@@ -135,5 +136,11 @@ class Organization extends Model
         $this->users()->detach();
 
         $this->delete();
+    }
+
+
+    public function nameInitial()
+    {
+        return (new InitialAvatar())->name($this->name)->generateSvg()->toXMLString();
     }
 }
