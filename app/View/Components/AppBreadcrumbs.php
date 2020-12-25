@@ -13,13 +13,10 @@ class AppBreadcrumbs extends Component
     /**
      * Create a new component instance.
      *
-     * @param $organization
      */
-    public function __construct(Organization $organization = null)
+    public function __construct()
     {
-        if ($organization) {
-            $this->organization = $organization;
-        }
+        $this->organization = request()->user()->currentOrganization;
     }
 
     /**

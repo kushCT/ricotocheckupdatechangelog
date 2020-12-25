@@ -16,18 +16,7 @@
 </head>
 <body class="antialiased">
     {{-- Main container --}}
-    <main class="flex min-h-screen bg-gray-200">
-        <x-app-sidebar />
-
-        {{-- App content --}}
-        <div class="flex-grow flex flex-col">
-            <x-app-navigation />
-
-            <div class="flex-grow flex flex-col">
-                {{ $slot }}
-            </div>
-        </div>
-    </main>
+    {{ $slot }}
 
     @livewireScripts
 </body>

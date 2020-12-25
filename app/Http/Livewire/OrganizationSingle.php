@@ -32,7 +32,7 @@ class OrganizationSingle extends Component
             abort(403);
         }
 
-        return redirect(route('account.applications.show', $organizationId), 303);
+        return redirect(route('account.applications.index', $organization->slug), 303);
     }
 
     /**
