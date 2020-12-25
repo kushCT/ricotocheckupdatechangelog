@@ -141,6 +141,6 @@ class Organization extends Model
 
     public function nameInitial()
     {
-        return (new InitialAvatar())->name($this->name)->generateSvg()->toXMLString();
+        return (new InitialAvatar())->name($this->name)->rounded()->fontSize(0.35)->generateSvg()->toXMLString();
     }
 }
