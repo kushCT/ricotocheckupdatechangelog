@@ -31,4 +31,17 @@ class CreateOrganization
             'personal_organization' => false,
         ]);
     }
+
+    /**
+     * Create project.
+     *
+     * @param $organization
+     * @param array $input
+     *
+     * @return mixed
+     */
+    public function createApplication($organization, array $input)
+    {
+        //
+    }
 }

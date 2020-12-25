@@ -13,19 +13,6 @@ use Illuminate\Support\Facades\Gate;
 class ApplicationAction
 {
     /**
-     * Create project.
-     *
-     * @param $organization
-     * @param array $input
-     *
-     * @return mixed
-     */
-    public function create($organization, array $input)
-    {
-        //
-    }
-
-    /**
      * Online project.
      *
      * @param $project
