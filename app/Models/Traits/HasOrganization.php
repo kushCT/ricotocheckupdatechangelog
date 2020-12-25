@@ -111,8 +111,8 @@ trait HasOrganization
      */
     public function belongsToOrganization($organization): bool
     {
-        return $this->organizations->contains(function ($t) use ($organization) {
-                return $t->id === $organization->id;
+        return $this->organizations->contains(function ($o) use ($organization) {
+                return $o->id === $organization->id;
             }) || $this->ownsOrganization($organization);
     }
 }
