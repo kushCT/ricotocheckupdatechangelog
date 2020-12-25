@@ -3,35 +3,30 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class AppController extends Controller
+class OrganizationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
-     * @return Application|Factory|View|Response
+     * @return View
      */
-    public function index(Request $request)
+    public function index(): View
     {
-        $organization = $request->user()->currentOrganization;
-
-        return view('apps.index', compact('organization'));
+        return view('organizations.index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('organizations.create');
     }
 
     /**

@@ -21,10 +21,13 @@ Route::get('/', function () {
 Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], function () {
 
     // Apps route
-    Route::resource('apps', 'AppController');
+    Route::resource('applications', 'AppController');
 
-    // Projects route
-    Route::resource('projects', 'ProjectController');
+    // Organizations route
+    Route::resource('organizations', 'OrganizationController');
+
+    // Members route
+    Route::resource('members', 'MemberController');
 
     // Users route
     Route::resource('user', 'UserController');

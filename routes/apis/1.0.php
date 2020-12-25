@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
  |--------------------------------------------------------------------------
  |
  */
-Route::apiResource('organization', 'OrganizationController');
-Route::apiResource('organization.members', 'MemberController')
+Route::apiResource('organizations', 'OrganizationController');
+Route::apiResource('organizations.members', 'MemberController')
     ->only(['index', 'store']);
 
 /*

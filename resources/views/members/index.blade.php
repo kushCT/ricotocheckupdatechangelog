@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="flex-grow flex flex-col p-12">
-        <x-app-breadcrumbs :organization="$organization" />
+        <x-app-breadcrumbs />
 
         <div class="flex-grow flex-none mt-10">
-            List des apps
+            Liste des organizations
         </div>
     </div>
 </x-app-layout>

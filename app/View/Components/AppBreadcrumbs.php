@@ -2,21 +2,24 @@
 
 namespace App\View\Components;
 
+use App\Models\Organization;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class AppBreadcrumbs extends Component
 {
-    public string $name;
+    public Organization $organization;
 
     /**
      * Create a new component instance.
      *
-     * @param $name
+     * @param $organization
      */
-    public function __construct(string $name)
+    public function __construct(Organization $organization = null)
     {
-        $this->name = $name;
+        if ($organization) {
+            $this->organization = $organization;
+        }
     }
 
     /**
