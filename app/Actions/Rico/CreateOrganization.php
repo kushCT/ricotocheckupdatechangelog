@@ -6,6 +6,7 @@ use App\Models\Organization;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class CreateOrganization
@@ -28,6 +29,7 @@ class CreateOrganization
 
         return $user->ownedOrganizations()->create([
             'name' => $input['name'],
+            'slug' => Str::slug($input['name']),
             'personal_organization' => false,
         ]);
     }

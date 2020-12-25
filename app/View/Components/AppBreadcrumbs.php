@@ -8,7 +8,15 @@ use Illuminate\View\Component;
 
 class AppBreadcrumbs extends Component
 {
+    /**
+     * @var Organization
+     */
     public Organization $organization;
+
+    /**
+     * @var string
+     */
+    public string $lastLink;
 
     /**
      * Create a new component instance.
@@ -17,6 +25,13 @@ class AppBreadcrumbs extends Component
     public function __construct()
     {
         $this->organization = request()->user()->currentOrganization;
+
+        if ($this->organization->id) {
+            $array = explode('/', request()->getRequestUri());
+            $end = end($array);
+
+            $this->lastLink = ucfirst($end);
+        }
     }
 
     /**

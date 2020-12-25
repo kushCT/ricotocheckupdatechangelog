@@ -68,7 +68,7 @@ class CreateNewUser implements CreatesNewUsers
         $user->ownedOrganizations()->save(Organization::forceCreate([
             'user_id' => $user->id,
             'name' => $name,
-            'slug' => Str::slug($name, ''),
+            'slug' => Str::slug($name),
             'personal_organization' => (bool) true,
         ]));
     }
