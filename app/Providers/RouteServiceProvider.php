@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Organization;
 use App\Models\Application;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -56,7 +55,6 @@ class RouteServiceProvider extends ServiceProvider
         /**
          * Configure route model.
          */
-        Route::model('organization', Organization::class);
         Route::model('application', Application::class);
 
         /**

@@ -15,16 +15,12 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
-            $table->foreignUuid('organization_id')
-                ->constrained()
-                ->cascadeOnDelete();
-            $table->string('name');
-            $table->enum('status', config('rico.mock.project_status'))
-                ->index();
-            $table->boolean('archived')
-                ->default(false);
-            $table->boolean('pinned')
-                ->default(false);
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+            $table->string('name')->unique()->index();
+            $table->string('slug')->unique()->index();
+            $table->enum('status', config('rico.mock.application_status'))->index();
+            $table->boolean('archived')->default(false);
+            $table->boolean('pinned')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

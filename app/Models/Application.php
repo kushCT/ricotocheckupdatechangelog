@@ -5,7 +5,8 @@ namespace App\Models;
 use App\Events\ApplicationCreated;
 use App\Events\ApplicationDeleted;
 use App\Events\ApplicationUpdated;
-use App\Models\Traits\HasApplicationStatus;
+use App\Models\Traits\HasProperty;
+use App\Models\Traits\HasUser;
 use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,7 @@ use LasseRafn\InitialAvatarGenerator\InitialAvatar;
 
 class Application extends Model
 {
-    use HasFactory, HasUuid, SoftDeletes, HasApplicationStatus;
+    use HasFactory, HasUuid, SoftDeletes, HasUser, HasProperty;
 
     /**
      * The attributes that are mass assignable.
@@ -23,14 +24,16 @@ class Application extends Model
      */
     protected $fillable = [
         'name',
+        'personal_application',
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
+        'personal_application' => 'boolean',
         'archived' => 'boolean',
         'pinned' => 'boolean',
     ];
@@ -47,64 +50,23 @@ class Application extends Model
     ];
 
     /**
-     * Application is archived.
+     * Purge all of the application's resources.
      *
-     * @return bool
+     * @return void
      */
-    public function isArchived(): bool
+    public function purge()
     {
-        return !!$this->archived;
+        $this->owner()->where('current_application_id', $this->id)
+            ->update(['current_application_id' => null]);
+
+        $this->users()->where('current_application_id', $this->id)
+            ->update(['current_application_id' => null]);
+
+        $this->users()->detach();
+
+        $this->delete();
     }
 
-    /**
-     * Archived application
-     */
-    public function archived()
-    {
-        tap($this)->update([
-            'archived' => true
-        ]);
-    }
-
-    /**
-     * Unarchived application.
-     */
-    public function unarchived()
-    {
-        tap($this)->update([
-            'archived' => false
-        ]);
-    }
-
-    /**
-     * Application is archived.
-     *
-     * @return bool
-     */
-    public function isPinned(): bool
-    {
-        return !!$this->pinned;
-    }
-
-    /**
-     * Pinned application
-     */
-    public function pinned()
-    {
-        tap($this)->update([
-            'pinned' => true
-        ]);
-    }
-
-    /**
-     * Unpinned application.
-     */
-    public function unpinned()
-    {
-        tap($this)->update([
-            'pinned' => false
-        ]);
-    }
 
     /**
      * @return string

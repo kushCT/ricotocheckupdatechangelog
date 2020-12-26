@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Organization;
+use App\Models\Application;
 use Illuminate\Database\Seeder;
 
 class OrganizationsSeeder extends Seeder
@@ -14,6 +14,6 @@ class OrganizationsSeeder extends Seeder
      */
     public function run()
     {
-        Organization::factory()->times(5)->create();
+        Application::factory()->times(5)->create();
     }
 }

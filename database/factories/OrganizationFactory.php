@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Organization;
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -14,7 +14,7 @@ class OrganizationFactory extends Factory
      *
      * @var string
      */
-    protected $model = Organization::class;
+    protected $model = Application::class;
 
     /**
      * Define the model's default state.

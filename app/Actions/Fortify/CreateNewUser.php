@@ -2,16 +2,14 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\Organization;
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
-use Laravel\Fortify\Rules\Password;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -39,7 +37,7 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
-            'organization_name' => ['required', 'string', Rule::unique(Organization::class, 'name')]
+            'organization_name' => ['required', 'string', Rule::unique(Application::class, 'name')]
         ])->validate();
 
         /**
@@ -53,23 +51,5 @@ class CreateNewUser implements CreatesNewUsers
                 $this->createOrganization($user, $input['organization_name']);
             });
         });
-    }
-
-    /**
-     * Create a personal organization for the user.
-     *
-     * @param User $user
-     * @param string $name
-     *
-     * @return void
-     */
-    protected function createOrganization(User $user, string $name)
-    {
-        $user->ownedOrganizations()->save(Organization::forceCreate([
-            'user_id' => $user->id,
-            'name' => $name,
-            'slug' => Str::slug($name),
-            'personal_organization' => (bool) true,
-        ]));
     }
 }

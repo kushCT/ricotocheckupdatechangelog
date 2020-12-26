@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HasOrganization;
+use App\Models\Traits\HasApplication;
 use App\Models\Traits\HasProfile;
 use App\Models\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
     use Notifiable;
     use HasUuid;
-    use HasOrganization;
+    use HasApplication;
     use TwoFactorAuthenticatable;
     use HasProfile;
     use SoftDeletes;

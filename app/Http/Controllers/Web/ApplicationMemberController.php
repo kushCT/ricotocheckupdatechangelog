@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class OrganizationApplicationController extends Controller
+class ApplicationMemberController extends Controller
 {
     /**
      * @param Request $request
@@ -14,6 +14,6 @@ class OrganizationApplicationController extends Controller
      */
     public function index(Request $request): View
     {
-        return view('applications.index');
+        return view('members.index');
     }
 }

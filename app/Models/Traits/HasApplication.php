@@ -2,49 +2,60 @@
 
 namespace App\Models\Traits;
 
+use App\Models\Membership;
 use App\Models\Application;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Collection;
 
 trait HasApplication
 {
     /**
-     * Get all of the project the user owns.
-     *
-     * @return HasMany
+     * Get all of the applications the user owns or belongs to.
      */
-    public function applications(): HasMany
+    public function allApplication()
+    {
+        return $this->ownedApplications->merge($this->applications)->sortBy('name');
+    }
+
+
+    /**
+     * Get all of the application the user owns.
+     */
+    public function ownedApplications()
     {
         return $this->hasMany(Application::class);
     }
 
     /**
-     * All application.
-     *
-     * @return Collection
+     * Get all of the applications the user belongs to.
      */
-    public function allApplication(): Collection
+    public function applications()
     {
-        return collect($this->applications)->sortBy('name');
+        return $this->belongsToMany(Application::class, Membership::class)
+            ->withPivot('role')
+            ->withTimestamps()
+            ->as('membership');
     }
 
     /**
-     * Pinned application.
+     * Determine if the user owns the given application.
      *
-     * @return HasMany
+     * @param  mixed  $application
+     * @return bool
      */
-    public function pinnedApplications(): HasMany
+    public function ownsApplication($application): bool
     {
-        return $this->applications()->where('pinned', '=', true);
+        return $this->id == $application->user_id;
     }
 
     /**
-     * All pinned application.
+     * Determine if the user belongs to the given application.
      *
-     * @return Collection
+     * @param  mixed  $application
+     * @return bool
      */
-    public function allPinnedApplication(): Collection
+    public function belongsToApplication($application): bool
     {
-        return collect($this->pinnedApplications)->sortByDesc('name');
+        return $this->applications->contains(function ($o) use ($application) {
+                return $o->id === $application->id;
+            }) || $this->ownsApplication($application);
     }
 }

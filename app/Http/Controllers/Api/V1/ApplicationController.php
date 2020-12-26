@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateOrganizationRequest;
-use App\Http\Resources\OrganizationResource;
+use App\Http\Requests\CreateApplicationRequest;
+use App\Http\Resources\ApplicationResource;
 use App\Models\Application;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
-class OrganizationsController extends Controller
+class ApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class OrganizationsController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        return OrganizationResource::collection(
+        return ApplicationResource::collection(
             $request->user->allOrganizations()
         );
     }
@@ -31,25 +31,25 @@ class OrganizationsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param CreateOrganizationRequest $request
-     * @return OrganizationResource
+     * @param CreateApplicationRequest $request
+     * @return ApplicationResource
      */
-    public function store(CreateOrganizationRequest $request): OrganizationResource
+    public function store(CreateApplicationRequest $request): ApplicationResource
     {
         $project = Application::create($request->all());
 
-        return new OrganizationResource($project);
+        return new ApplicationResource($project);
     }
 
     /**
      * Display the specified resource.
      *
      * @param Application $project
-     * @return OrganizationResource
+     * @return ApplicationResource
      */
-    public function show(Application $project): OrganizationResource
+    public function show(Application $project): ApplicationResource
     {
-        return new OrganizationResource($project);
+        return new ApplicationResource($project);
     }
 
     /**

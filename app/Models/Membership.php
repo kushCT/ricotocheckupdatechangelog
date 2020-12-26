@@ -16,5 +16,5 @@ class Membership extends Pivot
      *
      * @var string
      */
-    protected $table = 'organization_user';
+    protected $table = 'application_user';
 }

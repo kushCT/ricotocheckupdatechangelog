@@ -17,7 +17,7 @@ return [
         /**
          * Project status.
          */
-        'project_status' => [
+        'application_status' => [
             'online',
             'paused',
         ]
