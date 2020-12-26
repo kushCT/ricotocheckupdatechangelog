@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @livewireStyles
 </head>
-<body class="antialiased">
+<body class="font-sans antialiased">
     <main>
         {{ $slot }}
     </main>
