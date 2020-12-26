@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>{{ config('app.name', 'Rico') }}</title>
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -109,29 +106,29 @@
                             <div class="mt-1 space-y-1" role="group" aria-labelledby="teams-headline">
                                 <a href="#"
                                    class="group flex items-center px-3 py-2 text-base leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"
-                                              aria-hidden="true"></span>
+                                            <span class="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"
+                                                  aria-hidden="true"></span>
                                     <span class="truncate">
-                    Engineering
-                  </span>
+                        Engineering
+                      </span>
                                 </a>
 
                                 <a href="#"
                                    class="group flex items-center px-3 py-2 text-base leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full"
-                                              aria-hidden="true"></span>
+                                            <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full"
+                                                  aria-hidden="true"></span>
                                     <span class="truncate">
-                    Human Resources
-                  </span>
+                        Human Resources
+                      </span>
                                 </a>
 
                                 <a href="#"
                                    class="group flex items-center px-3 py-2 text-base leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                                        <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full"
-                                              aria-hidden="true"></span>
+                                            <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full"
+                                                  aria-hidden="true"></span>
                                     <span class="truncate">
-                    Customer Success
-                  </span>
+                        Customer Success
+                      </span>
                                 </a>
                             </div>
                         </div>
@@ -147,7 +144,7 @@
     <!-- Static sidebar for desktop -->
     <div class="hidden lg:flex lg:flex-shrink-0">
         <div class="flex flex-col w-64 border-r border-gray-200 pb-4 bg-gray-100">
-            <x-left-navigation></x-left-navigation>
+            <x-left-navigation />
         </div>
     </div>
     <!-- Main column -->
@@ -246,7 +243,6 @@
         </main>
     </div>
 </div>
-
-    @livewireScripts
+@livewireScripts
 </body>
 </html>
