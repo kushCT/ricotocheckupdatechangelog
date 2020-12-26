@@ -15,12 +15,9 @@ class CreateCountriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->uuid('id')->primary()->primary();
-            $table->string('native_name')
-                ->unique()->index();
-            $table->string('iso_code', 3)
-                ->unique()->index();
-            $table->json('translations')
-                ->nullable();
+            $table->string('native_name')->unique()->index();
+            $table->string('iso_code', 3)->unique()->index();
+            $table->json('translations')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
