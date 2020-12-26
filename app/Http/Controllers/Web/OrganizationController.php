@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -14,25 +13,20 @@ class OrganizationController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return RedirectResponse
+     * @return View
      */
-    public function index(Request $request): RedirectResponse
+    public function index(Request $request): View
     {
-        $organization = $request->user()->currentOrganization;
-
-        return redirect()->route(
-            'account.applications.index', [
-                'slug' => $organization->slug
-            ]
-        );
+        return view('organizations.index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return View
      */
-    public function create(): View
+    public function create(Request $request): View
     {
         return view('organizations.create');
     }
@@ -40,7 +34,7 @@ class OrganizationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -73,7 +67,7 @@ class OrganizationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
      * @return Response
      */
