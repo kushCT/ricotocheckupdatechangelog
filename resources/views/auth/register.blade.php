@@ -24,17 +24,6 @@
                         <form action="{{ route('register') }}" method="post" class="space-y-6">
                             @csrf
                             <div>
-                                <label for="organization_name" class="block text-sm font-medium text-gray-700">
-                                    {{ __('Organization name') }}
-                                </label>
-                                <div class="mt-1">
-                                    <input id="organization_name" name="organization_name" type="text" autocomplete="organization_name" required placeholder="My organization name"
-                                           class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                </div>
-                                <p class="text-xs text-red-500"> @error('organization_name') {{ $message }} @enderror</p>
-                            </div>
-
-                            <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">
                                     {{ __('Email address') }}
                                 </label>

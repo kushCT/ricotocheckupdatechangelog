@@ -2,7 +2,6 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\Application;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -37,18 +36,17 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
-            'organization_name' => ['required', 'string', Rule::unique(Application::class, 'name')]
         ])->validate();
 
         /**
-         * Create user and organization.
+         * Create user.
          */
         return DB::transaction(function () use ($input) {
             return tap(User::create([
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
             ]), function (User $user) use ($input) {
-                $this->createOrganization($user, $input['organization_name']);
+                //
             });
         });
     }
