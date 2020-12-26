@@ -64,14 +64,14 @@
             <li>
                 <a href="#"
                    class="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
-                                  <span class="flex items-center truncate space-x-3">
-                                    <span class="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600"
-                                          aria-hidden="true"></span>
-                                    <span class="font-medium truncate text-sm leading-6">
-                                      GraphQL API
-                                      <span class="truncate font-normal text-gray-500">in Engineering</span>
-                                    </span>
-                                  </span>
+                      <span class="flex items-center truncate space-x-3">
+                        <span class="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600"
+                              aria-hidden="true"></span>
+                        <span class="font-medium truncate text-sm leading-6">
+                          GraphQL API
+                          <span class="truncate font-normal text-gray-500">in Engineering</span>
+                        </span>
+                      </span>
                     <!-- Heroicon name: chevron-right -->
                     <svg class="ml-4 h-5 w-5 text-gray-400 group-hover:text-gray-500"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -112,10 +112,10 @@
                             <div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600"
                                  aria-hidden="true"></div>
                             <a href="#" class="truncate hover:text-gray-600">
-                                          <span>
-                                            GraphQL API
-                                            <span class="text-gray-500 font-normal">in Engineering</span>
-                                          </span>
+                              <span>
+                                GraphQL API
+                                <span class="text-gray-500 font-normal">in Engineering</span>
+                              </span>
                             </a>
                         </div>
                     </td>
