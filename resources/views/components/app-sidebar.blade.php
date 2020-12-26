@@ -1,5 +1,5 @@
 {{--   Project sidebar  --}}
-<div class="flex-shrink-0 flex flex-col w-24 bg-white shadow-md border-r">
+<div class="flex-shrink-0 flex flex-col w-24 bg-white border-r border-gray-200">
     {{-- LOGO --}}
     <div class="flex-shrink flex justify-center items-center h-20 bg-white">
         <img class="h-12 w-auto opacity-25" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
