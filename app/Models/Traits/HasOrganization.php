@@ -66,6 +66,18 @@ trait HasOrganization
     }
 
     /**
+     * Last view organization.
+     *
+     * @return Collection
+     */
+    public function lastViewOrganization(): Collection
+    {
+        $this->allOrganization()->sortByDesc('last_view')
+            ->take(5)
+            ->sortBy('name');
+    }
+
+    /**
      * Get all of the organization the user owns.
      */
     public function ownedOrganizations(): HasMany

@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
-use Intervention\Image\Image;
 use LasseRafn\InitialAvatarGenerator\InitialAvatar;
 
 class Organization extends Model

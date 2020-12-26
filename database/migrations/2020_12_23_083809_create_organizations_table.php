@@ -20,10 +20,15 @@ class CreateOrganizationsTable extends Migration
             $table->foreignUuid('user_id')
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->string('name')->unique()
+            $table->string('name')
+                ->unique()
                 ->index();
-            $table->string('slug')->unique()->index();
-            $table->boolean('personal_organization')->default(false);
+            $table->string('slug')
+                ->unique()
+                ->index();
+            $table->boolean('personal_organization')
+                ->default(false);
+            $table->dateTime('last_view');
             $table->softDeletes();
             $table->timestamps();
         });

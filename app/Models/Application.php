@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use LasseRafn\InitialAvatarGenerator\InitialAvatar;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class Application extends Model
 {
@@ -47,13 +48,13 @@ class Application extends Model
     ];
 
     /**
-     * Project is archived.
+     * Application is archived.
      *
-     * @return mixed
+     * @return bool
      */
-    public function isArchived()
+    public function isArchived(): bool
     {
-        return $this->archived;
+        return !!$this->archived;
     }
 
     /**
@@ -74,6 +75,16 @@ class Application extends Model
         tap($this)->update([
             'archived' => false
         ]);
+    }
+
+    /**
+     * Application is archived.
+     *
+     * @return bool
+     */
+    public function isPinned(): bool
+    {
+        return !!$this->pinned;
     }
 
     /**
