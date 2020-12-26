@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class OrganizationFactory extends Factory
+class ApplicationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -26,8 +26,7 @@ class OrganizationFactory extends Factory
         return [
             'name' => $name = $this->faker->company,
             'slug' => Str::Slug($name),
-            'user_id' => User::factory()->create(),
-            'personal_organization' => true
+            'user_id' => User::factory()->create()
         ];
     }
 }
