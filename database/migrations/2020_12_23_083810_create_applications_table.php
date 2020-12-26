@@ -23,6 +23,8 @@ class CreateApplicationsTable extends Migration
                 ->index();
             $table->boolean('archived')
                 ->default(false);
+            $table->boolean('pinned')
+                ->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

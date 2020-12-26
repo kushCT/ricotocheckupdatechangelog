@@ -30,7 +30,10 @@ class Application extends Model
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = [
+        'archived' => 'boolean',
+        'pinned' => 'boolean',
+    ];
 
     /**
      * The event map for the model.
@@ -70,6 +73,26 @@ class Application extends Model
     {
         tap($this)->update([
             'archived' => false
+        ]);
+    }
+
+    /**
+     * Pinned application
+     */
+    public function pinned()
+    {
+        tap($this)->update([
+            'pinned' => true
+        ]);
+    }
+
+    /**
+     * Unpinned application.
+     */
+    public function unpinned()
+    {
+        tap($this)->update([
+            'pinned' => false
         ]);
     }
 
