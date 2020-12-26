@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use LasseRafn\InitialAvatarGenerator\InitialAvatar;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class Application extends Model
 {

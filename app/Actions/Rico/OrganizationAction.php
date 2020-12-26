@@ -2,14 +2,16 @@
 
 namespace App\Actions\Rico;
 
+use App\Models\Application;
 use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
-class CreateOrganization
+class OrganizationAction
 {
     /**
      * Validate and create a new team for the given user.
@@ -37,13 +39,24 @@ class CreateOrganization
     /**
      * Create project.
      *
-     * @param $organization
+     * @param User $user
+     * @param Organization $organization
      * @param array $input
      *
      * @return mixed
+     * @throws AuthorizationException|ValidationException
      */
-    public function createApplication($organization, array $input)
+    public function createApplication(User $user, Organization $organization, array $input)
     {
-        //
+        Gate::forUser($user)->authorize('create', Application::class);
+
+        Validator::make($input, [
+            'name' => ['required', 'string', 'max:255'],
+        ])->validateWithBag('createOrganizationApplication');
+
+        return $organization->applications()->create([
+            'name' => $input['name'],
+            'status' => 'online'
+        ]);
     }
 }
