@@ -6,6 +6,6 @@
     </x-slot>
     <div>
         {{-- Success is as dangerous as failure. --}}
-        App index
+        <livewire:application-index />
     </div>
 </x-app-layout>

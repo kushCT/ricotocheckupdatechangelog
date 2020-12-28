@@ -11,11 +11,11 @@ use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use LasseRafn\InitialAvatarGenerator\InitialAvatar;
+use Rackbeat\UIAvatars\HasAvatar;
 
 class Application extends Model
 {
-    use HasFactory, HasUuid, SoftDeletes, HasUser, HasProperty;
+    use HasFactory, HasUuid, SoftDeletes, HasUser, HasProperty, HasAvatar;
 
     /**
      * The attributes that are mass assignable.
@@ -65,19 +65,5 @@ class Application extends Model
         $this->users()->detach();
 
         $this->delete();
-    }
-
-
-    /**
-     * @return string
-     */
-    public function nameInitial(): string
-    {
-        return (new InitialAvatar())
-            ->name($this->name)
-            ->rounded()
-            ->fontSize(0.35)
-            ->generateSvg()
-            ->toXMLString();
     }
 }

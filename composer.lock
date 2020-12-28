@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed1a060f8cd8e612fee09bd411a568b3",
+    "content-hash": "bf9615399849e1477ce15954efa8e3a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2900,6 +2900,70 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.10.5"
             },
             "time": "2020-12-04T02:51:30+00:00"
+        },
+        {
+            "name": "rackbeat/laravel-ui-avatars",
+            "version": "0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rackbeat/laravel-ui-avatars.git",
+                "reference": "7ab775c6dc1efa1ea865bbce17ef7add1dea85d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rackbeat/laravel-ui-avatars/zipball/7ab775c6dc1efa1ea865bbce17ef7add1dea85d7",
+                "reference": "7ab775c6dc1efa1ea865bbce17ef7add1dea85d7",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5|~5.6|~5.7|~5.8|~5.9|~6.0|^7.0|^8.0",
+                "lasserafn/php-initial-avatar-generator": "^4.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rackbeat\\UIAvatars\\UIAvatarsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rackbeat\\UIAvatars\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lasse Rafn",
+                    "email": "lasserafn@gmail.com"
+                },
+                {
+                    "name": "Rackbeat",
+                    "email": "open-source@rackbeat.com"
+                }
+            ],
+            "description": "Official Laravel wrapper around ui-avatars.com and LasseRafn/php-initial-avatar-generator",
+            "keywords": [
+                "Initials",
+                "avatars",
+                "laravel",
+                "php",
+                "ui-avatars"
+            ],
+            "support": {
+                "issues": "https://github.com/Rackbeat/laravel-ui-avatars/issues",
+                "source": "https://github.com/Rackbeat/laravel-ui-avatars/tree/0.9"
+            },
+            "time": "2020-10-04T21:25:14+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
