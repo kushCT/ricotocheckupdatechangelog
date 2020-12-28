@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Application;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
 
 class ApplicationsSeeder extends Seeder
@@ -14,6 +15,6 @@ class ApplicationsSeeder extends Seeder
      */
     public function run()
     {
-        Application::factory()->times(5)->create();
+       Application::factory()->times(5)->create();
     }
 }

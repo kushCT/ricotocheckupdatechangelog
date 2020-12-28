@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Application;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -26,7 +27,7 @@ class ApplicationFactory extends Factory
         return [
             'name' => $name = $this->faker->company,
             'slug' => Str::Slug($name),
-            'user_id' => User::factory()->create()
+            'user_id' => User::factory()->hasProfile(1)->create()
         ];
     }
 }

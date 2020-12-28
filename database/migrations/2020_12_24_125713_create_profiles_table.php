@@ -15,15 +15,16 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('country_id')->constrained()->cascadeOnDelete();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone_number');
-            $table->string('status');
-            $table->string('avatar');
-            $table->string('username');
-            $table->string('twitter');
-            $table->string('github');
+            $table->string('phone_number')->nullable();
+            $table->string('status')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('username')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('github')->nullable();
             $table->timestamps();
         });
     }

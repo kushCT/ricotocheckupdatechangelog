@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProfileFactory extends Factory
@@ -19,10 +21,17 @@ class ProfileFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'country_id' => Country::factory()->create(),
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
+            'phone_number' => $this->faker->phoneNumber,
+            'username' => $this->faker->userName,
+            'twitter' => '@'.$this->faker->userName,
+            'github' => '@'.$this->faker->userName,
+            'avatar' => $this->faker->imageUrl()
         ];
     }
 }
