@@ -18,9 +18,14 @@
     <div class="h-screen bg-gray-100 flex">
         <!-- sidebar -->
         <div class="flex-shrink-0 flex flex-col items-center py-8 justify-between w-20 border-r border-gray-200">
-            <div class="logo rounded-full w-14 h-14 bg-white"></div>
+            <div>
+                <a href="#" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                </a>
+            </div>
 
-            <nav class="flex space-y-10 flex flex-col">
+            <nav class="flex space-y-12 flex flex-col">
                 <a href="#" class="text-black w-18 h-18 lg:hover:text-yellow-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -60,7 +65,9 @@
 
         <div class="flex-grow flex flex-col">
             <!-- navigation -->
-            <div class="flex-shrink-0 border-b border-gray-200 px-16 py-4"></div>
+            <div class="flex-shrink-0 border-b border-gray-200 px-16 py-4">
+
+            </div>
 
             <!-- content -->
             <main class="flex-grow">
