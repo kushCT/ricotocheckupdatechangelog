@@ -1,4 +1,4 @@
-<div class="nav relative flex items-center justify-between border-b border-gray-200 py-4 px-14">
+<div class="nav relative flex items-center justify-between border-b border-gray-200 px-14">
     <!-- logo -->
     <h2 class="logo mr-6">
         Rico apps
@@ -18,11 +18,21 @@
     </div>
 
     <!-- application menu -->
-    <nav class="flex justify-center lg:justify-end space-x-10">
-        <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black transition duration-150 ease-in-out">Dashboard</a>
-        <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black transition duration-150 ease-in-out">Stats</a>
-        <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black transition duration-150 ease-in-out">Clients</a>
-        <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black transition duration-150 ease-in-out">Collaborators</a>
-        <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black transition duration-150 ease-in-out">Settings</a>
+    <nav class="flex justify-center lg:justify-end space-x-10 h-20">
+        <x-nav-link href="#" :active="request()->routeIs('account.dashboard')">
+            {{ __('Dashboard') }}
+        </x-nav-link>
+        <x-nav-link href="#" :active="request()->routeIs('account.analytics.show')">
+            {{ __('Analytics') }}
+        </x-nav-link>
+        <x-nav-link href="#" :active="request()->routeIs('account.clients.show')">
+            {{ __('Clients') }}
+        </x-nav-link>
+        <x-nav-link href="#" :active="request()->routeIs('account.collaborators.show')">
+            {{ __('Collaborators') }}
+        </x-nav-link>
+        <x-nav-link href="#" :active="request()->routeIs('account.settings.show')">
+            {{ __('Settings') }}
+        </x-nav-link>
     </nav>
 </div>
