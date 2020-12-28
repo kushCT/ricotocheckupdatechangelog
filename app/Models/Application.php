@@ -53,6 +53,7 @@ class Application extends Model
      * Purge all of the application's resources.
      *
      * @return void
+     * @throws \Exception
      */
     public function purge()
     {
