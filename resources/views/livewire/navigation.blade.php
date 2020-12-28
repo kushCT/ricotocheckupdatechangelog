@@ -32,7 +32,7 @@
         </div>
     </div>
 </nav>--}}
-<header class="flex-shrink-0 border-b border-gray-200 px-14 py-4 relative flex items-center justify-between">
+<div class="nav relative flex items-center justify-between border-b border-gray-200 py-4 px-14">
     <!-- logo -->
     <h2 class="logo mr-6">
         Rico apps
@@ -59,4 +59,4 @@
         <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black">Collaborators</a>
         <a href="#" class="text-sm font-medium text-gray-400 lg:hover:text-black">Settings</a>
     </nav>
-</header>
+</div>

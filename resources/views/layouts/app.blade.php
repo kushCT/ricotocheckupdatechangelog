@@ -20,8 +20,14 @@
         @livewire('sidebar')
 
         <div class="flex-grow flex flex-col">
-            <!-- navigation -->
-            @livewire('navigation')
+            <header class="flex-shrink-0">
+                <!-- navigation -->
+                @livewire('navigation')
+
+                <div class="px-14 mt-8">
+                    {{ $header }}
+                </div>
+            </header>
 
             <!-- content -->
             <main class="flex-grow px-14 pt-6">
