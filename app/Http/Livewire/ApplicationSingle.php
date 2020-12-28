@@ -18,6 +18,6 @@ class ApplicationSingle extends Component
 
     public function render()
     {
-        return view('livewire.application-single');
+        return view('applications.livewire.application-single');
     }
 }

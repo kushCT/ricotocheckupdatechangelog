@@ -1358,7 +1358,7 @@ module.exports = (
       var originURL;
 
       /**
-    * Parse a URL to discover it's components
+    * Parse a URL to discover it's livewire
     *
     * @param {String} url The URL to be parsed
     * @returns {Object}
