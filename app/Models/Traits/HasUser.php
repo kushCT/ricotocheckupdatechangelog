@@ -76,7 +76,10 @@ trait HasUser
         $this->users()->detach($user);
     }
 
-    public function countMember()
+    /**
+     * @return int
+     */
+    public function countMember(): int
     {
         return $this->owner()->count();
     }
