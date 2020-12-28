@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Web\AnalyticController;
 use App\Http\Controllers\Web\ApplicationController;
 use App\Http\Controllers\Web\ArchiveController;
 use App\Http\Controllers\Web\DashboardController;
+use App\Http\Controllers\Web\NotificationController;
+use App\Http\Controllers\Web\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +25,23 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
      * Archive routes.
      */
     Route::get('/archives', ArchiveController::class)->name('archives.index');
+
+    /**
+     * Analytics routes.
+     */
+    Route::get('/analytics', [AnalyticController::class, 'index'])->name('analytics.index');
+    Route::get('/applications/{application}/analytics', [AnalyticController::class, 'show'])->name('analytics.show');
+
+    /**
+     * Notifications routes.
+     */
+    Route::get('/notifications', NotificationController::class)->name('notifications.index');
+
+    /**
+     * Settings routes.
+     */
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::get('/applications/{application}/settings', [SettingController::class, 'show'])->name('settings.show');
 
     /**
      * Application routes.
