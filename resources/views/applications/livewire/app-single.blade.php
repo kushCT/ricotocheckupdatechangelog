@@ -53,17 +53,29 @@
 
                 <x-slot name="content">
                     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                        <x-dropdown-link href="#">
-                            {{ __('Online') }}
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
+                            <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
+                            <span class="truncate">
+                                {{ __('Online') }}
+                            </span>
                         </x-dropdown-link>
-                        <x-dropdown-link href="#">
-                            {{ __('Suspended') }}
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                            <span class="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full" aria-hidden="true"></span>
+                            <span class="truncate">
+                                {{ __('Suspended') }}
+                            </span>
                         </x-dropdown-link>
-                        <x-dropdown-link href="#">
-                            {{ __('Archived') }}
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                            <span class="w-2.5 h-2.5 mr-4 bg-gray-500 rounded-full" aria-hidden="true"></span>
+                            <span class="truncate">
+                                {{ __('Archived') }}
+                            </span>
                         </x-dropdown-link>
-                        <x-dropdown-link href="#">
-                            {{ __('Delete') }}
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                            <span class="w-2.5 h-2.5 mr-4 bg-red-500 rounded-full" aria-hidden="true"></span>
+                            <span class="truncate">
+                                {{ __('Delete') }}
+                            </span>
                         </x-dropdown-link>
                     </div>
                 </x-slot>
