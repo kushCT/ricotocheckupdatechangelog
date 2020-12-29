@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 
-class OrganizationAction
+class ApplicationAction
 {
     /**
      * Validate and create a new team for the given user.
