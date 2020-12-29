@@ -20,8 +20,8 @@
 </li>--}}
 
 <li class="col-span-1 flex bg-white shadow-sm rounded-md py-4">
-    <div class="w-24  flex justify-center">
-        <span class="bg-black w-12 h-12 rounded-full flex items-center justify-center text-white">
+    <div class="w-24 flex justify-center">
+        <span class="bg-black w-12 h-12 font-medium rounded-full flex items-center justify-center text-white">
             {{ $app->getInitials(2) }}
         </span>
     </div>
