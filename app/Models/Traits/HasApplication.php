@@ -12,9 +12,16 @@ trait HasApplication
      */
     public function allApplication()
     {
-        return $this->ownedApplications->merge($this->applications)->sortBy('name');
+        return $this->ownedApplications->merge($this->applications)->where('archived', false)->sortBy('name');
     }
 
+    /**
+     * Get all of the applications the user owns or belongs to.
+     */
+    public function allApplicationArchived()
+    {
+        return $this->ownedApplications->merge($this->applications)->where('archived', true)->sortBy('name');
+    }
 
     /**
      * Get all of the application the user owns.

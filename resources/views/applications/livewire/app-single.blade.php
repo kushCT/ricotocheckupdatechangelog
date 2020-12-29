@@ -65,8 +65,6 @@
                         @if ($app->isOnline() && !$app->isArchived())
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
                             <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
-                            <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Paused') }}
                             </span>
