@@ -66,6 +66,12 @@
                             </span>
                         </x-dropdown-link>
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                            <span class="w-2.5 h-2.5 mr-4 bg-blue-500 rounded-full" aria-hidden="true"></span>
+                            <span class="truncate">
+                                {{ __('Pinned') }}
+                            </span>
+                        </x-dropdown-link>
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
                             <span class="w-2.5 h-2.5 mr-4 bg-gray-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Archived') }}
