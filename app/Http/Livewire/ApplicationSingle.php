@@ -17,12 +17,23 @@ class ApplicationSingle extends Component
         $this->app = $app;
     }
 
-    public function paused(Application $application)
+    /**
+     * @param $status
+     */
+    public function changeStatus($status)
     {
-        try {
-            (new ApplicationAction())->paused($application, request()->user());
-        } catch (AuthorizationException $e) {
-            dd($e);
+        if ($status === 'online') {
+            try {
+                (new ApplicationAction())->online($this->app, request()->user());
+            } catch (AuthorizationException $e) {
+                dd($e);
+            }
+        } else {
+            try {
+                (new ApplicationAction())->paused($this->app, request()->user());
+            } catch (AuthorizationException $e) {
+                dd($e);
+            }
         }
     }
 

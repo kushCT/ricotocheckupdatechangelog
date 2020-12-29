@@ -35,7 +35,7 @@
                 <x-slot name="content">
                     <div class="py-1 pb-0" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         @if ($app->isPaused() && !$app->isArchived())
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click="changeStatus('online')">
                             <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Online') }}
@@ -44,7 +44,7 @@
                         @endif
 
                         @if ($app->isOnline() && !$app->isArchived())
-                        <x-dropdown-link class="group flex items-center px-3 text-base leading-5" wire:click="paused({{$app}})">
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click="changeStatus('paused')">
                             <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Paused') }}
