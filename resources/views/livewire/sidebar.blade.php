@@ -4,7 +4,7 @@
         <a href="#" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
             <span class="sr-only">Open user menu</span>
             @if (Auth::user()->hasAvatar())
-                <img class="h-12 w-12 rounded-full"
+                <img class="h-12 w-12 rounded-full object-cover"
                      src="{{ Auth::user()->avatar() }}"
                      alt="avatar">
             @else
