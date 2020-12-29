@@ -33,6 +33,7 @@ trait HasApplication
     public function allPinnedApplication()
     {
         return $this->ownedApplications->merge($this->applications)
+            ->where('archived', '=', false)
             ->where('pinned', true)
             ->sortBy('name');
     }
