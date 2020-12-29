@@ -42,7 +42,7 @@
         <div class="flex-shrink-0 pr-2">
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
-                    <button class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none">
+                    <button class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span class="sr-only">Open options</span>
                         <!-- Heroicon name: dots-vertical -->
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -53,31 +53,54 @@
 
                 <x-slot name="content">
                     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                        @if ($app->isPaused() && !$app->isArchived())
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
                             <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Online') }}
                             </span>
                         </x-dropdown-link>
+                        @endif
+
+                        @if ($app->isOnline() && !$app->isArchived())
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
+                            <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
                             <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
-                                {{ __('Suspended') }}
+                                {{ __('Paused') }}
                             </span>
                         </x-dropdown-link>
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                        @endif
+
+                        @if (!$app->isPinned() && !$app->isArchived())
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
                             <span class="w-2.5 h-2.5 mr-4 bg-blue-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Pinned') }}
                             </span>
                         </x-dropdown-link>
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                        @endif
+
+                        @if ($app->isPinned() && !$app->isArchived())
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
+                            <span class="w-2.5 h-2.5 mr-4 bg-blue-500 rounded-full" aria-hidden="true"></span>
+                            <span class="truncate">
+                                {{ __('Unpinned') }}
+                            </span>
+                        </x-dropdown-link>
+                        @endif
+
+                        @if (!$app->isArchived())
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
                             <span class="w-2.5 h-2.5 mr-4 bg-gray-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Archived') }}
                             </span>
                         </x-dropdown-link>
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium">
+                        @endif
+
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
                             <span class="w-2.5 h-2.5 mr-4 bg-red-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Delete') }}
