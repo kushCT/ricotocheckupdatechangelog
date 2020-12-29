@@ -25,7 +25,7 @@
             {{ $app->getInitials(2) }}
         </span>
     </div>
-    <div class="flex-1 flex truncate">
+    <div class="flex-1 flex relative">
         <div class="flex-1 px-2 truncate">
             <a href="#" class="text-gray-900 text-lg font-medium hover:text-gray-600">{{ $app->name }}</a>
             <p class="text-gray-500 text-xs">{{ $app->created_at->diffForHumans() }}</p>
@@ -40,13 +40,34 @@
             </div>
         </div>
         <div class="flex-shrink-0 pr-2">
-            <button class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                <span class="sr-only">Open options</span>
-                <!-- Heroicon name: dots-vertical -->
-                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-                </svg>
-            </button>
+            <x-dropdown align="right" width="48">
+                <x-slot name="trigger">
+                    <button class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <span class="sr-only">Open options</span>
+                        <!-- Heroicon name: dots-vertical -->
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                        </svg>
+                    </button>
+                </x-slot>
+
+                <x-slot name="content">
+                    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                        <x-dropdown-link href="#">
+                            {{ __('Online') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link href="#">
+                            {{ __('Suspended') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link href="#">
+                            {{ __('Archived') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link href="#">
+                            {{ __('Delete') }}
+                        </x-dropdown-link>
+                    </div>
+                </x-slot>
+            </x-dropdown>
         </div>
     </div>
 </li>
