@@ -124,8 +124,10 @@ class ApplicationAction
     {
         Gate::forUser($user)->authorize('update', $application);
 
-        if (!$application->isPinned()) {
-            $application->pinned();
+        if (count($user->allPinnedApplication()) < 4) {
+            if (!$application->isPinned()) {
+                $application->pinned();
+            }
         }
 
         ApplicationArchived::dispatch($application, $user);

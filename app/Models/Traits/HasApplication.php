@@ -12,15 +12,30 @@ trait HasApplication
      */
     public function allApplication()
     {
-        return $this->ownedApplications->merge($this->applications)->where('archived', false)->sortBy('name');
+        return $this->ownedApplications->merge($this->applications)
+            ->where('archived', false)
+            ->sortBy('name');
     }
 
     /**
-     * Get all of the applications the user owns or belongs to.
+     * Get all of the archived applications the user owns or belongs to.
      */
     public function allApplicationArchived()
     {
-        return $this->ownedApplications->merge($this->applications)->where('archived', true)->sortBy('name');
+        return $this->ownedApplications->merge($this->applications)
+            ->where('archived', true)
+            ->sortBy('name');
+    }
+
+    /**
+     * Get all of the pinned  applications the user owns or belongs to.
+     */
+    public function allPinnedApplication()
+    {
+        return $this->ownedApplications->merge($this->applications)
+            ->where('archived', false)
+            ->where('pinned', true)
+            ->sortBy('name');
     }
 
     /**
