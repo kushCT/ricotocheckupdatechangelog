@@ -145,7 +145,7 @@ class ApplicationAction
         Gate::forUser($user)->authorize('update', $application);
 
         if ($application->isPinned()) {
-            $application->unpined();
+            $application->unpinned();
         }
 
         ApplicationUnpinned::dispatch($application, $user);
