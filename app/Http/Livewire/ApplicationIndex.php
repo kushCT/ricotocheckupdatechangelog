@@ -12,6 +12,11 @@ class ApplicationIndex extends Component
     public $readyToLoad = false;
 
     /**
+     * @var bool
+     */
+    public $readyToListed = false;
+
+    /**
      * Event listener.
      *
      * @var string[]
@@ -27,13 +32,18 @@ class ApplicationIndex extends Component
         $this->readyToLoad = true;
     }
 
+    public function loadApps()
+    {
+        $this->readyToListed = true;
+    }
+
     /**
      * Render view.
      */
     public function render()
     {
         return view('applications.livewire.app-index', [
-            'applications' => request()->user()->allApplication(),
+            'applications' => $this->readyToListed ? request()->user()->allApplication() : [],
             'pins' => $this->readyToLoad ? request()->user()->allPinnedApplication() : []
         ]);
     }
