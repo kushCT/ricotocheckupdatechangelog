@@ -53,7 +53,7 @@
                         @endif
 
                         @if (!$app->isPinned() && !$app->isArchived())
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click="pinned">
                             <span class="w-2.5 h-2.5 mr-4 bg-blue-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Pinned') }}
@@ -62,7 +62,7 @@
                         @endif
 
                         @if ($app->isPinned() && !$app->isArchived())
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click="pinned" >
                             <span class="w-2.5 h-2.5 mr-4 bg-blue-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Unpinned') }}
@@ -71,7 +71,7 @@
                         @endif
 
                         @if (!$app->isArchived())
-                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5">
+                        <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click="archived">
                             <span class="w-2.5 h-2.5 mr-4 bg-gray-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
                                 {{ __('Archived') }}
