@@ -2,26 +2,30 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\Rico\ApplicationAction;
+use App\Models\Application;
+use Illuminate\Auth\Access\AuthorizationException;
 use Livewire\Component;
 
 class PinnedApplication extends Component
 {
-    public $readyToLoad = false;
+    /**
+     * @var Application
+     */
+    public Application $app;
 
-    protected $listeners = [
-        'applicationArchived' => '$refresh',
-        'applicationPinned' => '$refresh',
-    ];
-
-    public function loadPinned()
+    /**
+     * Mount method
+     *
+     * @param Application $app
+     */
+    public function mount(Application $app)
     {
-        $this->readyToLoad = true;
+        $this->app = $app;
     }
 
     public function render()
     {
-        return view('applications.livewire.pinned-app', [
-            'pins' => $this->readyToLoad ? request()->user()->allPinnedApplication() : []
-        ]);
+        return view('applications.livewire.pinned-app');
     }
 }

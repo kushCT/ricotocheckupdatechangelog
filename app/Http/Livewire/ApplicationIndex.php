@@ -2,11 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class ApplicationIndex extends Component
 {
+    /**
+     * @var bool
+     */
+    public $readyToLoad = false;
+
     /**
      * Event listener.
      *
@@ -17,6 +21,12 @@ class ApplicationIndex extends Component
         'applicationPinned' => '$refresh',
     ];
 
+
+    public function loadPinned()
+    {
+        $this->readyToLoad = true;
+    }
+
     /**
      * Render view.
      *
@@ -25,7 +35,8 @@ class ApplicationIndex extends Component
     public function render(): View
     {
         return view('applications.livewire.app-index', [
-            'applications' => request()->user()->allApplication()
+            'applications' => request()->user()->allApplication(),
+            'pins' => $this->readyToLoad ? request()->user()->allPinnedApplication() : []
         ]);
     }
 }
