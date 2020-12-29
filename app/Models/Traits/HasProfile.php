@@ -4,6 +4,7 @@ namespace App\Models\Traits;
 
 use App\Models\Profile;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Collection;
 
 trait HasProfile
 {
@@ -23,7 +24,7 @@ trait HasProfile
      */
     public function hasAvatar(): bool
     {
-        return !!$this->avatar;
+        return !!$this->profile->avatar;
     }
 
     /**
@@ -32,5 +33,13 @@ trait HasProfile
     public function initial(): string
     {
         return $this->profile->getInitials(2);
+    }
+
+    /**
+     * @return string
+     */
+    public function avatar(): string
+    {
+        return $this->profile->avatar;
     }
 }

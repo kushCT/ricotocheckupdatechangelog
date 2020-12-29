@@ -5,8 +5,8 @@
             <span class="sr-only">Open user menu</span>
             @if (Auth::user()->hasAvatar())
                 <img class="h-12 w-12 rounded-full"
-                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                     alt="">
+                     src="{{ Auth::user()->avatar() }}"
+                     alt="avatar">
             @else
                 <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
                   <span class="text-xl font-medium leading-none text-white">{!! Auth::user()->initial() !!}</span>
