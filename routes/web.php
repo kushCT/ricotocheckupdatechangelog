@@ -3,6 +3,8 @@
 use App\Http\Controllers\Web\AnalyticController;
 use App\Http\Controllers\Web\ApplicationController;
 use App\Http\Controllers\Web\ArchiveController;
+use App\Http\Controllers\Web\ClientController;
+use App\Http\Controllers\Web\CollaboratorController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\NotificationController;
 use App\Http\Controllers\Web\SettingController;
@@ -42,6 +44,12 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
      */
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::get('/applications/{application}/settings', [SettingController::class, 'show'])->name('settings.show');
+
+    Route::get('/applications/{application}/collaborators', [CollaboratorController::class, 'show'])
+        ->name('collaborators.show');
+
+    Route::get('/applications/{application}/clients', [ClientController::class, 'show'])
+        ->name('clients.show');
 
     /**
      * Application routes.

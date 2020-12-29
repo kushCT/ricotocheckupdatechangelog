@@ -14,6 +14,6 @@ class AnalyticController extends Controller
 
     public function show()
     {
-        // return view('analytics.show');
+        return view('analytics.show');
     }
 }

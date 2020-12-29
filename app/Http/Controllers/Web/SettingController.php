@@ -14,6 +14,6 @@ class SettingController extends Controller
 
     public function show()
     {
-        // return view('settings.index');
+        return view('settings.index');
     }
 }
