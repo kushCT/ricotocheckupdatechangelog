@@ -8,6 +8,8 @@ use Livewire\Component;
 class ApplicationIndex extends Component
 {
     /**
+     * Event listener.
+     *
      * @var string[]
      */
     protected $listeners = [
@@ -18,8 +20,9 @@ class ApplicationIndex extends Component
     /**
      * Render view.
      *
+     * @return View
      */
-    public function render()
+    public function render(): View
     {
         return view('applications.livewire.app-index', [
             'applications' => request()->user()->allApplication()

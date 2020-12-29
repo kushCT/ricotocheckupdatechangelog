@@ -85,6 +85,7 @@ class ApplicationAction
 
         DB::transaction(function () use ($application) {
             $application->paused();
+            $application->unpinned();
             $application->archived();
         });
 
