@@ -53,6 +53,8 @@ class ApplicationSingle extends Component
         } else {
             (new ApplicationAction())->pinned($this->app, request()->user());
         }
+
+        $this->emit('applicationPinned');
     }
 
     /**
@@ -67,6 +69,8 @@ class ApplicationSingle extends Component
         } else {
             (new ApplicationAction())->archived($this->app, request()->user());
         }
+
+        $this->emit('applicationArchived');
     }
 
     /**
