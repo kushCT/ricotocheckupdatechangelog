@@ -19,9 +19,9 @@ trait HasProperty
      */
     public function online()
     {
-        tap($this)->update([
+        $this->forceFill([
             'status' => 'online'
-        ]);
+        ])->save();
     }
 
     /**
@@ -39,9 +39,9 @@ trait HasProperty
      */
     public function paused()
     {
-        tap($this)->update([
+        $this->forceFill([
             'status' => 'paused'
-        ]);
+        ])->save();
     }
 
     /**
@@ -59,9 +59,9 @@ trait HasProperty
      */
     public function archived()
     {
-        tap($this)->update([
+        $this->forceFill([
             'archived' => true
-        ]);
+        ])->save();
     }
 
     /**
@@ -69,9 +69,9 @@ trait HasProperty
      */
     public function unarchived()
     {
-        tap($this)->update([
+        $this->forceFill([
             'archived' => false
-        ]);
+        ])->save();
     }
 
     /**
@@ -89,9 +89,9 @@ trait HasProperty
      */
     public function pinned()
     {
-        tap($this)->update([
+        $this->forceFill([
             'pinned' => true
-        ]);
+        ])->save();
     }
 
     /**
@@ -99,8 +99,8 @@ trait HasProperty
      */
     public function unpinned()
     {
-        tap($this)->update([
+        $this->forceFill([
             'pinned' => false
-        ]);
+        ])->save();
     }
 }
