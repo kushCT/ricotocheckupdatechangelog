@@ -21,7 +21,7 @@
 
 <li class="col-span-1 flex bg-white shadow-sm rounded-md py-4">
     <div class="w-24 flex justify-center">
-        <span class="bg-black w-12 h-12 font-medium rounded-full flex items-center justify-center text-white">
+        <span class="bg-black w-12 h-12 font-medium rounded-full flex items-center justify-center text-white @if($app->isOnline()) ring-2 ring-green-500 @elseif($app->isPaused()) ring-2 ring-yellow-500 @endif">
             {{ $app->getInitials(2) }}
         </span>
     </div>
