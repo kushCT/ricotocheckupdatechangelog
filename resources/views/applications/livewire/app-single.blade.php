@@ -23,7 +23,7 @@
         <div class="flex-shrink-0 pr-2">
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
-                    <button class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none">
+                    <button type="button" id="apps-menu-{{ $app->id }}" aria-haspopup="true" aria-expanded="true" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none">
                         <span class="sr-only">Open options</span>
                         <!-- Heroicon name: dots-vertical -->
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -33,7 +33,7 @@
                 </x-slot>
 
                 <x-slot name="content">
-                    <div class="py-1 pb-0 divide" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    <div class="py-1 pb-0 divide" role="menu" aria-orientation="vertical" aria-labelledby="apps-menu-{{ $app->id }}">
                         @if ($app->isPaused() && !$app->isArchived())
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click.prevent="setStatus('online')">
                             <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
@@ -87,6 +87,8 @@
                                 </span>
                             </x-dropdown-link>
                         @endif
+
+                        <div class="border-t border-gray-100"></div>
 
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 text-red-300 hover:text-red-500">
                             <svg class="w-4 h-4 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
