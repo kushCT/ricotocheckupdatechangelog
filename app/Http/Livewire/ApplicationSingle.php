@@ -20,7 +20,7 @@ class ApplicationSingle extends Component
     /**
      * @param $status
      */
-    public function changeStatus($status)
+    public function setStatus($status)
     {
         if ($status === 'online') {
             try {
