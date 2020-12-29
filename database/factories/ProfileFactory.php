@@ -31,7 +31,7 @@ class ProfileFactory extends Factory
             'username' => $this->faker->userName,
             'twitter' => '@'.$this->faker->userName,
             'github' => '@'.$this->faker->userName,
-            'avatar' => $this->faker->imageUrl()
+            'avatar' => 'https://images.unsplash.com/photo-1569913486515-b74bf7751574?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzh8fGF2YXRhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
         ];
     }
 }
