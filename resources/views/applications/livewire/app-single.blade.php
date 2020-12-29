@@ -33,7 +33,7 @@
                 </x-slot>
 
                 <x-slot name="content">
-                    <div class="py-1 pb-0" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    <div class="py-1 pb-0 divide" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         @if ($app->isPaused() && !$app->isArchived())
                         <x-dropdown-link href="#" class="group flex items-center px-3 text-base leading-5 font-medium" wire:click.prevent="setStatus('online')">
                             <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>

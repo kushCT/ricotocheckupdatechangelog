@@ -18,9 +18,8 @@ class ApplicationIndex extends Component
     /**
      * Render view.
      *
-     * @return View
      */
-    public function render(): View
+    public function render()
     {
         return view('applications.livewire.app-index', [
             'applications' => request()->user()->allApplication()
