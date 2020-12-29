@@ -1,6 +1,11 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-black text-2xl leading-tight">
+            {{ __($application->name) }}
+        </h2>
+    </x-slot>
     <div>
-        {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day --}}
-        App show
+        {{-- Success is as dangerous as failure. --}}
+        Application detail
     </div>
 </x-app-layout>

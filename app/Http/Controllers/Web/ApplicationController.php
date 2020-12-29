@@ -37,6 +37,8 @@ class ApplicationController extends Controller
      */
     public function show(Request $request): View
     {
-        return view('applications.show');
+        return view('applications.show', [
+            'application' => $request->application
+        ]);
     }
 }

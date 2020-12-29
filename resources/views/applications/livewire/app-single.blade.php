@@ -27,7 +27,9 @@
     </div>
     <div class="flex-1 flex relative">
         <div class="flex-1 px-2 truncate">
-            <a href="#" class="text-gray-900 text-lg font-medium hover:text-gray-600">{{ $app->name }}</a>
+            <a href="{{ route('account.apps.show', ['application' => $app->id]) }}" class="text-gray-900 text-lg font-medium hover:text-gray-600">
+                {{ $app->name }}
+            </a>
             <p class="text-gray-500 text-xs">{{ $app->created_at->diffForHumans() }}</p>
             <div class="flex items-center space-x-2 pt-3 pb-2">
                 <div class="flex flex-shrink-0 -space-x-1">
