@@ -1,4 +1,4 @@
-<div wire:init="loadArchived">
+<div wire:init="loadArchived" class="h-full">
     @if(count($applications) > 0)
         <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">
             {{ __('Archived applications') }}
@@ -9,7 +9,7 @@
             @endforeach
         </ul>
     @else
-        <div class="flex h-96 py-10 items-center justify-center flex-col">
+        <div class="flex h-full items-center justify-center flex-col">
             <svg class="w-20 h-20 opacity-5 mb-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
             </svg>
