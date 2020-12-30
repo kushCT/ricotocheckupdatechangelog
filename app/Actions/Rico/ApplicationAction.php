@@ -3,8 +3,8 @@
 namespace App\Actions\Rico;
 
 use App\Events\ApplicationArchived;
-use App\Events\ApplicationIsOnline;
-use App\Events\ApplicationIsPaused;
+use App\Events\ApplicationOnline;
+use App\Events\ApplicationPaused;
 use App\Events\ApplicationUnarchived;
 use App\Events\ApplicationUnpinned;
 use App\Models\Application;
@@ -47,7 +47,7 @@ class ApplicationAction
             $application->online();
         }
 
-        ApplicationIsOnline::dispatch($application, $user);
+        ApplicationOnline::dispatch($application, $user);
     }
 
     /**
@@ -67,7 +67,7 @@ class ApplicationAction
             $application->paused();
         }
 
-        ApplicationIsPaused::dispatch($application, $user);
+        ApplicationPaused::dispatch($application, $user);
     }
 
     /**

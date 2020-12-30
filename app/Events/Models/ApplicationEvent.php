@@ -24,7 +24,7 @@ abstract class ApplicationEvent
      *
      * @var User
      */
-    public User $user;
+    public $user;
 
     /**
      * Create a new event instance.
@@ -32,7 +32,7 @@ abstract class ApplicationEvent
      * @param Application $application
      * @param User|null $user
      */
-    public function __construct(Application $application, User $user = null)
+    public function __construct(Application $application, $user = null)
     {
         $this->application = $application;
 
