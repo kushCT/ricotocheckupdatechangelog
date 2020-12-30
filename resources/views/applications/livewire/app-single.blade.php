@@ -20,7 +20,7 @@
                         @endif
                     @endforeach
                 </div>
-                <span class="flex-shrink-0 text-xs leading-5 text-gray-300 font-medium">{{ ($app->countMember() - 4) < 0 ? '' : '+'.($app->countMember() - 4)}}</span>
+                <span class="flex-shrink-0 text-xs leading-5 text-gray-300 font-medium">{{ ($app->countMember() - count($app->membersAvatars())) <= 0 ? '' : '+'.($app->countMember() - count($app->membersAvatars()))}}</span>
             </div>
         </div>
         <div class="flex-shrink-0 pr-2">
