@@ -37,6 +37,11 @@ trait HasUser
             ->as('membership');
     }
 
+    public function membersAvatars()
+    {
+        return $this->users()->limit(4)->get();
+    }
+
     /**
      * Determine if the given user belongs to the application.
      *
@@ -81,6 +86,6 @@ trait HasUser
      */
     public function countMember(): int
     {
-        return $this->owner()->count();
+        return $this->users()->count();
     }
 }

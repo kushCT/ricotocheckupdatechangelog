@@ -12,12 +12,15 @@
             <p class="text-gray-500 text-xs">{{ $app->created_at->diffForHumans() }}</p>
             <div class="flex items-center space-x-2 pt-3 pb-2">
                 <div class="flex flex-shrink-0 -space-x-1">
-                    <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                    <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                    <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
-                    <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    @foreach($app->membersAvatars() as $user)
+                        @if ($user->hasAvatar())
+                            <img class="max-w-none h-8 w-8 rounded-full ring-2 ring-white" src="{{ $user->avatar() }}" alt="avatar">
+                        @else
+                            <span class="max-w-none h-8 w-8 rounded-full ring-2 ring-white inline-flex items-center justify-center bg-black text-white text-xs ">{!! $user->initial() !!}</span>
+                        @endif
+                    @endforeach
                 </div>
-                <span class="flex-shrink-0 text-xs leading-5 text-gray-300 font-medium">+8</span>
+                <span class="flex-shrink-0 text-xs leading-5 text-gray-300 font-medium">{{ ($app->countMember() - 4) < 0 ? '' : '+'.($app->countMember() - 4)}}</span>
             </div>
         </div>
         <div class="flex-shrink-0 pr-2">
