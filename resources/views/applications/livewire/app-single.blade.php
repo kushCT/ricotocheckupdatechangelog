@@ -20,7 +20,9 @@
                                  src="{{ $user->avatar() }}" alt="avatar">
                         @else
                             <span
-                                class="max-w-none h-7 w-7 rounded-full ring-2 ring-white inline-flex items-center justify-center bg-black text-white text-xs ">{!! $user->initial() !!}</span>
+                                class="max-w-none h-7 w-7 rounded-full ring-2 ring-white inline-flex items-center justify-center bg-black text-white text-xs ">
+                                {!! $user->initial() !!}
+                            </span>
                         @endif
                     @endforeach
                 </div>
