@@ -4,7 +4,7 @@
             {{ __('Applications') }}
         </h2>
     </x-slot>
-    <div>
+    <div class="h-full">
         {{-- Success is as dangerous as failure. --}}
         <livewire:application-index />
     </div>
