@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class SidebarLink extends Component
@@ -11,9 +12,9 @@ class SidebarLink extends Component
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param null $active
      */
-    public function __construct($active)
+    public function __construct($active = null)
     {
         $this->active = $active;
     }
@@ -21,7 +22,7 @@ class SidebarLink extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|string
+     * @return View|string
      */
     public function render()
     {
