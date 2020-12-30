@@ -14,7 +14,7 @@
             <p class="text-gray-500 text-xs">{{ $app->created_at->diffForHumans() }}</p>
             <div class="flex items-center space-x-2 pt-3 pb-2">
                 <div class="flex flex-shrink-0 -space-x-1">
-                    @foreach($app->membersAvatars() as $user)
+                    @forelse($app->appLastMembers() as $user)
                         @if ($user->hasAvatar())
                             <img class="max-w-none h-7 w-7 rounded-full ring-2 ring-white object-cover"
                                  src="{{ $user->avatar() }}" alt="avatar">
@@ -24,10 +24,17 @@
                                 {!! $user->initial() !!}
                             </span>
                         @endif
-                    @endforeach
+                    @empty
+                        <a href="#" class="inline-flex items-center justify-center py-2 px-3 rounded text-xs text-white font-bold tracking-normal bg-black hover:bg-gray-700">
+                            <svg class="h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Add collaborator
+                        </a>
+                    @endforelse
                 </div>
                 <span
-                    class="flex-shrink-0 text-xs leading-5 text-gray-300 font-medium">{{ ($app->countMember() - count($app->membersAvatars())) <= 0 ? '' : '+'.($app->countMember() - count($app->membersAvatars()))}}</span>
+                    class="flex-shrink-0 text-xs leading-5 text-gray-300 font-medium">{{ ($app->countMember() - count($app->appLastMembers())) <= 0 ? '' : '+'.($app->countMember() - count($app->appLastMembers()))}}</span>
             </div>
         </div>
         <div class="flex-shrink-0 pr-2">

@@ -29,7 +29,7 @@ trait HasUser
     /**
      * Get all of the users that belong to the application.
      */
-    public function users()
+    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(User::class, Membership::class)
             ->withPivot('role')
@@ -37,9 +37,13 @@ trait HasUser
             ->as('membership');
     }
 
-    public function membersAvatars()
+    /**
+     * @param int $limit
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function appLastMembers($limit = 4): \Illuminate\Database\Eloquent\Collection
     {
-        return $this->users()->limit(4)->get();
+        return $this->users()->limit($limit)->orderByDesc('created_at')->get();
     }
 
     /**

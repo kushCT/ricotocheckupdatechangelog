@@ -28,11 +28,12 @@ trait HasProfile
     }
 
     /**
+     * @param int $length
      * @return string
      */
-    public function initial(): string
+    public function initial($length = 2): string
     {
-        return $this->profile->getInitials(2);
+        return $this->profile->getInitials($length);
     }
 
     /**
