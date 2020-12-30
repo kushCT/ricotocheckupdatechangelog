@@ -14,9 +14,9 @@
                 <div class="flex flex-shrink-0 -space-x-1">
                     @foreach($app->membersAvatars() as $user)
                         @if ($user->hasAvatar())
-                            <img class="max-w-none h-8 w-8 rounded-full ring-2 ring-white" src="{{ $user->avatar() }}" alt="avatar">
+                            <img class="max-w-none h-7 w-7 rounded-full ring-2 ring-white object-cover" src="{{ $user->avatar() }}" alt="avatar">
                         @else
-                            <span class="max-w-none h-8 w-8 rounded-full ring-2 ring-white inline-flex items-center justify-center bg-black text-white text-xs ">{!! $user->initial() !!}</span>
+                            <span class="max-w-none h-7 w-7 rounded-full ring-2 ring-white inline-flex items-center justify-center bg-black text-white text-xs ">{!! $user->initial() !!}</span>
                         @endif
                     @endforeach
                 </div>
