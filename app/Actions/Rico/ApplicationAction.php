@@ -2,28 +2,24 @@
 
 namespace App\Actions\Rico;
 
-use App\Events\ApplicationArchived;
-use App\Events\ApplicationOnline;
-use App\Events\ApplicationPaused;
-use App\Events\ApplicationUnarchived;
-use App\Events\ApplicationUnpinned;
+use App\Events\ApplicationActionEvent;
 use App\Models\Application;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Validation\ValidationException;
 
 class ApplicationAction
 {
     /**
      * Validate and create a new team for the given user.
      *
-     * @param mixed $user
      * @param array $input
+     * @param $user
      * @return mixed
-     * @throws AuthorizationException|ValidationException
+     * @throws AuthorizationException
      */
-    public function create($user, array $input)
+    public function create(array $input, $user)
     {
         Gate::forUser($user)->authorize('create', Application::class);
 
@@ -35,7 +31,6 @@ class ApplicationAction
      *
      * @param $application
      * @param $user
-     *
      * @return void
      * @throws AuthorizationException
      */
@@ -47,7 +42,7 @@ class ApplicationAction
             $application->online();
         }
 
-        ApplicationOnline::dispatch($application, $user);
+        ApplicationActionEvent::dispatch($application, $user, 'application.online');
     }
 
     /**
@@ -55,7 +50,6 @@ class ApplicationAction
      *
      * @param $application
      * @param $user
-     *
      * @return void
      * @throws AuthorizationException
      */
@@ -67,7 +61,7 @@ class ApplicationAction
             $application->paused();
         }
 
-        ApplicationPaused::dispatch($application, $user);
+        ApplicationActionEvent::dispatch($application, $user, 'application.paused');
     }
 
     /**
@@ -75,7 +69,6 @@ class ApplicationAction
      *
      * @param $application
      * @param $user
-     *
      * @return void
      * @throws AuthorizationException
      */
@@ -89,7 +82,7 @@ class ApplicationAction
             $application->archived();
         });
 
-        ApplicationArchived::dispatch($application, $user);
+        ApplicationActionEvent::dispatch($application, $user, 'application.archived');
     }
 
     /**
@@ -97,7 +90,6 @@ class ApplicationAction
      *
      * @param $application
      * @param $user
-     *
      * @return void
      * @throws AuthorizationException
      */
@@ -109,7 +101,7 @@ class ApplicationAction
             $application->unarchived();
         }
 
-        ApplicationUnarchived::dispatch($application, $user);
+        ApplicationActionEvent::dispatch($application, $user, 'application.unarchived');
     }
 
     /**
@@ -117,7 +109,6 @@ class ApplicationAction
      *
      * @param $application
      * @param $user
-     *
      * @return void
      * @throws AuthorizationException
      */
@@ -131,7 +122,7 @@ class ApplicationAction
             }
         }
 
-        ApplicationArchived::dispatch($application, $user);
+        ApplicationActionEvent::dispatch($application, $user, 'application.pinned');
     }
 
     /**
@@ -139,7 +130,6 @@ class ApplicationAction
      *
      * @param $application
      * @param $user
-     *
      * @return void
      * @throws AuthorizationException
      */
@@ -151,6 +141,6 @@ class ApplicationAction
             $application->unpinned();
         }
 
-        ApplicationUnpinned::dispatch($application, $user);
+        ApplicationActionEvent::dispatch($application, $user, 'application.unpinned');
     }
 }

@@ -6,6 +6,7 @@ use App\Actions\Rico\ApplicationAction;
 use App\Models\Application;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ApplicationSingle extends Component
@@ -34,10 +35,10 @@ class ApplicationSingle extends Component
 
         if ($status === 'online') {
             (new ApplicationAction())
-                ->online($this->app, request()->user());
+                ->online($this->app, Auth::user());
         } else {
             (new ApplicationAction())
-                ->paused($this->app, request()->user());
+                ->paused($this->app, Auth::user());
         }
     }
 
@@ -49,9 +50,9 @@ class ApplicationSingle extends Component
         $this->resetErrorBag();
 
         if ($this->app->isPinned()) {
-            (new ApplicationAction())->unpinned($this->app, request()->user());
+            (new ApplicationAction())->unpinned($this->app, Auth::user());
         } else {
-            (new ApplicationAction())->pinned($this->app, request()->user());
+            (new ApplicationAction())->pinned($this->app, Auth::user());
         }
 
         $this->emit('applicationPinned');
@@ -65,9 +66,9 @@ class ApplicationSingle extends Component
         $this->resetErrorBag();
 
         if ($this->app->isArchived()) {
-            (new ApplicationAction())->unarchived($this->app, request()->user());
+            (new ApplicationAction())->unarchived($this->app, Auth::user());
         } else {
-            (new ApplicationAction())->archived($this->app, request()->user());
+            (new ApplicationAction())->archived($this->app, Auth::user());
         }
 
         $this->emit('applicationArchived');

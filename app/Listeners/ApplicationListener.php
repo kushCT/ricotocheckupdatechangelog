@@ -2,12 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Notifications\ApplicationCreatedNotification;
+use App\Notifications\ApplicationNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Notification;
 
-class ApplicationCreatedListener implements ShouldQueue
+class ApplicationListener implements ShouldQueue
 {
     use InteractsWithQueue;
 
@@ -19,6 +19,6 @@ class ApplicationCreatedListener implements ShouldQueue
      */
     public function handle(object $event)
     {
-        Notification::send($event->user, new ApplicationCreatedNotification($event->application));
+        Notification::send($event->app, new ApplicationNotification($event));
     }
 }
