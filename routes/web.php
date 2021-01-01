@@ -45,11 +45,11 @@ Route::group(['as' => 'account.', 'middleware' => ['auth', 'verified']], functio
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::get('/applications/{application}/settings', [SettingController::class, 'show'])->name('settings.show');
 
-    Route::get('/applications/{application}/collaborators', [CollaboratorController::class, 'show'])
-        ->name('collaborators.show');
-
-    Route::get('/applications/{application}/clients', [ClientController::class, 'show'])
-        ->name('clients.show');
+    /**
+     * Application detail
+     */
+    Route::get('/applications/{application}/collaborators', [CollaboratorController::class, 'show'])->name('collaborators.show');
+    Route::get('/applications/{application}/clients', [ClientController::class, 'show'])->name('clients.show');
 
     /**
      * Application routes.
