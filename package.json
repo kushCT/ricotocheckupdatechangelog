@@ -20,7 +20,7 @@
         "laravel-echo": "1.11.3",
         "laravel-mix": "6.0.39",
         "lodash": "4.17.21",
-        "postcss-import": "12.0.1",
+        "postcss-import": "14.0.2",
         "resolve-url-loader": "3.1.4",
         "socket.io-client": "2.4.0",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.17",
