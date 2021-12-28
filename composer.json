@@ -11,7 +11,7 @@
         "php": "7.4.*|8.*",
         "ext-json": "*",
         "fideloper/proxy": "4.4.1",
-        "fruitcake/laravel-cors": "2.0.3",
+        "fruitcake/laravel-cors": "2.0.4",
         "guzzlehttp/guzzle": "7.2.0",
         "laravel-lang/lang": "7.0.9",
         "laravel/fortify": "1.7.2",
