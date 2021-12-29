@@ -16,7 +16,7 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
-            $table->string('name')->unique()->index();
+            $table->string('name')->index();
             $table->string('slug')->unique()->index();
             $table->enum('status', config('rico.mock.application_status'))->default('online')->index();
             $table->boolean('archived')->default(false);

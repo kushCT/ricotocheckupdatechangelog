@@ -8,6 +8,7 @@ use App\Http\Controllers\Web\CollaboratorController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\NotificationController;
 use App\Http\Controllers\Web\SettingController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
