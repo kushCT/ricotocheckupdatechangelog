@@ -19,6 +19,7 @@ return [
          */
         'application_status' => [
             'online',
+            'offline',
             'paused',
         ]
     ]

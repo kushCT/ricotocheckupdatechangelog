@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "ricoapp/rico",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Real time notification application",
     "keywords": [
         "framework",
         "laravel"

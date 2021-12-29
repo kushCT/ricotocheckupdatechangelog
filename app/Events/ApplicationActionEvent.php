@@ -38,8 +38,8 @@ class ApplicationActionEvent implements ShouldBroadcastNow
     /**
      * Create a new event instance.
      *
-     * @param $application
-     * @param $user
+     * @param Application $application
+     * @param User $user
      * @param string $action
      */
     public function __construct(Application $application, User $user, string $action)

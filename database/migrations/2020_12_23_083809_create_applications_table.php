@@ -18,7 +18,7 @@ class CreateApplicationsTable extends Migration
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('name')->unique()->index();
             $table->string('slug')->unique()->index();
-            $table->enum('status', config('rico.mock.application_status'))->index();
+            $table->enum('status', config('rico.mock.application_status'))->default('online')->index();
             $table->boolean('archived')->default(false);
             $table->boolean('pinned')->default(false);
             $table->softDeletes();
