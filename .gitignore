@@ -13,5 +13,5 @@ npm-debug.log
 yarn-error.log
 .idea
 /.idea
-package-lock.json
 laravel-echo-server.lock
+.DS_Store
